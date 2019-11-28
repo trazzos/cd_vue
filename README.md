@@ -87,6 +87,14 @@ Copy .env.example file and create your new .env file
 Run (From ssh)
 ### php artisan migrate
 
+# Front end
+HMR (Hot module replacement) 
+### That stupid thing just doesn't work and was taking too long to figure it out
+
+To build your assets just run (ssh)
+### yarn watch-poll
+That at least build fast and you can refresh your page to see the changes. Is not HMR but it works fast
+
 # Useful links 
 https://www.freecodecamp.org/news/how-to-build-a-single-page-application-using-vue-js-vuex-vuetify-and-firebase-838b40721a07/
 
