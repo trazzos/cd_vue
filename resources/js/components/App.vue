@@ -1,13 +1,25 @@
 <template>
-    <v-app>
-        <h1>Vue Router Demo App 2</h1>
-        <p>
-            <router-link :to="{ name: 'home' }">Home</router-link> |
-            <router-link :to="{ name: 'hello' }">Hello World</router-link>
-            <router-view></router-view>
-        </p>
+    <v-app id="sandbox">
+        <navigation-component></navigation-component>
+        <header-component></header-component>
+        <content-component></content-component>
+        <footer-component></footer-component>
     </v-app>
 </template>
+
+
 <script>
-  export default {}
+  import NavigationComponent from 'root/components/NavigationComponent';
+  import FooterComponent from 'root/components/FooterComponent';
+  import HeaderComponent from 'root/components/HeaderComponent';
+  import ContentComponent from 'root/components/ContentComponent';
+
+  export default {
+    components: {
+      NavigationComponent,
+      FooterComponent,
+      HeaderComponent,
+      ContentComponent
+    },
+  }
 </script>
