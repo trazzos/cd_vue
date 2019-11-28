@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/{any}', 'SpaController')
-    ->where('any', '^(?!api).*$')
-    ->name('administration');
+Route::prefix('company')->group(function() {
+    Route::get('/', 'CompanyController@index');
+});
