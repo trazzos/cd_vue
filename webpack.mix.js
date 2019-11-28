@@ -11,33 +11,14 @@ const mix = require('laravel-mix');
  |
  */
 
-/*module.exports = {
-    rules: [
-        {
-            test: /\.s(c|a)ss$/,
-            use: [
-                'vue-style-loader',
-                'css-loader',
-                {
-                    loader: 'sass-loader',
-                    options: {
-                        implementation: require('sass'),
-                        fiber: require('fibers'),
-                        indentedSyntax: true // optional
-                    },
-                },
-            ],
-        },
-    ],
-}*/
-
 mix.webpackConfig({
     resolve: {
         extensions: ['.js', '.vue'],
         alias: {
+            root: path.join(__dirname, '/resources/js'), //use with vueResources/
             '@': __dirname + '/resources'
         }
-    }
+    },
 });
 
 mix.js('resources/js/app.js', 'public/js')
