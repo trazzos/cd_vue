@@ -29,14 +29,19 @@
 </template>
 
 <script>
-    //TODO next use a vuex store to handle these values :P
+  import { mapState, mapMutations } from 'vuex';
+  import globalStore from 'root/store/globalStore';
+
   export default {
-    data: () => ({
-      primaryDrawer: {
-        model: null,
-        clipped: true,
-        mini: false,
-      },
-    }),
+    beforeCreate: function() {
+      if (!this.$store.state.globalStore) {
+        this.$store.registerModule(globalStore.name, globalStore);
+      }
+    },
+    computed: {
+      ...mapState(globalStore.name, [
+        'primaryDrawer',
+      ]),
+    },
   }
 </script>

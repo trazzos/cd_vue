@@ -3,11 +3,3 @@
         <router-view></router-view>
     </v-content>
 </template>
-
-
-<script>
-  export default {
-    data: () => ({
-    }),
-  }
-</script>
