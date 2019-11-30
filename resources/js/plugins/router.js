@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Hello from 'root/components/Hello'
 import Home from 'root/components/Home'
+import CompanyListComponent from 'companyModule/components/CompanyListComponent'
 
 const router = new VueRouter({
     mode: 'history',
@@ -13,9 +13,9 @@ const router = new VueRouter({
             component: Home
         },
         {
-            path: '/hello',
-            name: 'hello',
-            component: Hello,
+            path: '/company',
+            name: 'company',
+            component: CompanyListComponent,
         },
     ],
 });

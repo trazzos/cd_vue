@@ -16,7 +16,7 @@
                 </v-list-item-content>
             </v-list-item>
 
-            <v-list-item link :to="{ name: 'hello' }">
+            <v-list-item link :to="{ name: 'company' }">
                 <v-list-item-action>
                     <v-icon>mdi-contact-mail</v-icon>
                 </v-list-item-action>
