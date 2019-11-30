@@ -7,9 +7,9 @@
             <v-col cols="12">
                 <v-data-table
                     :headers="headers"
-                    :items="desserts"
-                    :items-per-page="5"
-                    :loading="true"
+                    :items="items"
+                    :items-per-page="25"
+                    :loading="loading"
                     class="elevation-1"
                 ></v-data-table>
             </v-col>
@@ -19,64 +19,29 @@
 
 
 <script>
-  import { mapState, mapMutations } from 'vuex';
+  import { mapState, mapMutations, mapActions } from 'vuex';
 
-  import globalStore from 'root/store/globalStore';
+  import companyListStore from 'companyModule/store/companyListStore';
 
   export default {
     beforeCreate: function() {
-      if (!this.$store.state.globalStore) {
-        this.$store.registerModule(globalStore.name, globalStore);
+      if (!this.$store.state.companyListStore) {
+        this.$store.registerModule(companyListStore.name, companyListStore);
       }
     },
     mounted() {
-      this.setLoading(false);
-    },
-    data () {
-      return {
-        headers: [
-          {
-            text: 'Dessert (100g serving)',
-            align: 'left',
-            sortable: false,
-            value: 'name',
-          },
-          {text: 'Calories', value: 'calories'},
-          {text: 'Fat (g)', value: 'fat'},
-          {text: 'Carbs (g)', value: 'carbs'},
-          {text: 'Protein (g)', value: 'protein'},
-          {text: 'Iron (%)', value: 'iron'},
-        ],
-        desserts: [
-/*
-          {
-            name: 'Frozen Yogurt',
-            calories: 159,
-            fat: 6.0,
-            carbs: 24,
-            protein: 4.0,
-            iron: '1%',
-          },
-          {
-            name: 'Ice cream sandwich',
-            calories: 237,
-            fat: 9.0,
-            carbs: 37,
-            protein: 4.3,
-            iron: '1%',
-          },
-*/
-        ],
-      }
+      this.companiesGet();
     },
     methods: {
-      ...mapMutations(globalStore.name, [
-        "setLoading"
+      ...mapActions(companyListStore.name, [
+        "companiesGet"
       ]),
     },
     computed: {
-      ...mapState(globalStore.name, [
+      ...mapState(companyListStore.name, [
         'loading',
+        'headers',
+        'items',
       ]),
     },
   }

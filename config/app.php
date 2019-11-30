@@ -175,6 +175,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //Own providers
+        App\Providers\ReplyServiceProvider::class,
+        App\Providers\ThrowExceptionServiceProvider::class,
+
     ],
 
     /*
@@ -225,7 +229,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        //Own facades
+        'Reply' => App\Facades\Reply::class,
+        'ThrowException' => App\Facades\ThrowException::class,
     ],
 
 ];
