@@ -1,5 +1,13 @@
 window._ = require('lodash');
 
+//Internet explorer polyfill
+let isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+if(isIE11) {
+    //Modular standard library for JavaScript. Includes polyfills for ECMAScript 5, ECMAScript 6: promises,
+    //symbols, collections, iterators, typed arrays, ECMAScript 7+ proposals, setImmediate
+    require('core-js');
+}
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the

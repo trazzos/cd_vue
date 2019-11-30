@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 6.5.2 on 2019-11-28 19:23:51.
+ * Generated for Laravel 6.5.2 on 2019-11-30 20:37:12.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -14715,6 +14715,102 @@ namespace Illuminate\Support {
  
 }
 
+namespace App\Facades { 
+
+    /**
+     * 
+     *
+     */ 
+    class Reply {
+        
+        /**
+         * 
+         *
+         * @param mixed $data
+         * @param string $message
+         * @param integer $code
+         * @return \App\Services\ApiResponse 
+         * @static 
+         */ 
+        public static function done($data = null, $message = null, $code = null)
+        {
+                        /** @var \App\Services\ReplyService $instance */
+                        return $instance->done($data, $message, $code);
+        }
+        
+        /**
+         * 
+         *
+         * @param null $message
+         * @param array $data
+         * @param boolean $flash
+         * @return \App\Services\ReplyService 
+         * @static 
+         */ 
+        public static function fail($message = null, $data = null, $flash = false)
+        {
+                        /** @var \App\Services\ReplyService $instance */
+                        return $instance->fail($message, $data, $flash);
+        }
+        
+        /**
+         * 
+         *
+         * @param array $headers
+         * @static 
+         */ 
+        public static function setHeaders($headers)
+        {
+                        /** @var \App\Services\ReplyService $instance */
+                        return $instance->setHeaders($headers);
+        }
+        
+        /**
+         * 
+         *
+         * @param $code
+         * @static 
+         */ 
+        public static function setCode($code)
+        {
+                        /** @var \App\Services\ReplyService $instance */
+                        return $instance->setCode($code);
+        }
+         
+    }
+
+    /**
+     * 
+     *
+     */ 
+    class ThrowException {
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function forbidden($message = null)
+        {
+                        /** @var \App\Services\ThrowExceptionService $instance */
+                        return $instance->forbidden($message);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function notFound($message = null)
+        {
+                        /** @var \App\Services\ThrowExceptionService $instance */
+                        return $instance->notFound($message);
+        }
+         
+    }
+ 
+}
+
 namespace Facade\Ignition\Facades { 
 
     /**
@@ -18435,6 +18531,10 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
+
+    class Reply extends \App\Facades\Reply {}
+
+    class ThrowException extends \App\Facades\ThrowException {}
 
     class Flare extends \Facade\Ignition\Facades\Flare {}
 

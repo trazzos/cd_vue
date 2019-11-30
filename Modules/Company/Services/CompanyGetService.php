@@ -2,6 +2,7 @@
 
 namespace Modules\Company\Services;
 
+use Illuminate\Support\Collection;
 use Modules\Company\Models\Company;
 use Modules\Company\Repositories\Interfaces\CompanyRepositoryInterface;
 use ThrowException;
@@ -37,5 +38,21 @@ class CompanyGetService {
         }
 
         return $company;
+    }
+
+    /**
+     * @param $id
+     * @return Company|null
+     * At this point everything is validated, we shouldn't check anything else
+     * TODO this is just a test  function to show backend and frontend connection
+     */
+    public function list() : ?Collection {
+        $companies= $this->companyRepo->all();
+
+        /*if(!$company) {
+            ThrowException::notFound();
+        }*/
+
+        return $companies;
     }
 }

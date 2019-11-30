@@ -16,7 +16,7 @@
                 </v-list-item-content>
             </v-list-item>
 
-            <v-list-item link :to="{ name: 'hello' }">
+            <v-list-item link :to="{ name: 'company' }">
                 <v-list-item-action>
                     <v-icon>mdi-contact-mail</v-icon>
                 </v-list-item-action>
@@ -29,14 +29,19 @@
 </template>
 
 <script>
-    //TODO next use a vuex store to handle these values :P
+  import { mapState, mapMutations } from 'vuex';
+  import globalStore from 'root/store/globalStore';
+
   export default {
-    data: () => ({
-      primaryDrawer: {
-        model: null,
-        clipped: true,
-        mini: false,
-      },
-    }),
+    beforeCreate: function() {
+      if (!this.$store.state.globalStore) {
+        this.$store.registerModule(globalStore.name, globalStore);
+      }
+    },
+    computed: {
+      ...mapState(globalStore.name, [
+        'primaryDrawer',
+      ]),
+    },
   }
 </script>

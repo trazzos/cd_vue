@@ -16,6 +16,7 @@ mix.webpackConfig({
         extensions: ['.js', '.vue'],
         alias: {
             root: path.join(__dirname, '/resources/js'), //use with vueResources/
+            companyModule: path.join(__dirname, '/Modules/Company/resources/assets/js'), //use with companyModule/
             '@': __dirname + '/resources'
         }
     },

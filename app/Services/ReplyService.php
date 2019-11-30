@@ -39,7 +39,7 @@ class ReplyService {
         $responseData = null;
 
         if(isset($data)) {
-            $responseData['data'] = $data;
+            $responseData['payload'] = $data;
         }
 
         if(isset($message)) {

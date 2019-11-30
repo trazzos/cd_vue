@@ -1,24 +1,35 @@
 <template>
     <v-app-bar
-        :clipped-left="primaryDrawer.clipped"
-        app
+        :clipped-left="primaryDrawer.clipped" app
     >
         <v-app-bar-nav-icon
-            @click.stop="primaryDrawer.model = !primaryDrawer.model"
+            @click.stop="toggleMini"
         />
-        <v-toolbar-title>Comprobante Digital</v-toolbar-title>
+        <v-toolbar-title>{{siteName}}</v-toolbar-title>
     </v-app-bar>
 </template>
 
 
 <script>
+  import { mapState, mapMutations } from 'vuex';
+  import globalStore from 'root/store/globalStore';
+
   export default {
-    data: () => ({
-      primaryDrawer: {
-        model: null,
-        clipped: true,
-        mini: false,
-      },
-    }),
+    beforeCreate: function() {
+      if (!this.$store.state.globalStore) {
+        this.$store.registerModule(globalStore.name, globalStore);
+      }
+    },
+    methods: {
+      ...mapMutations(globalStore.name, [
+        'toggleMini',
+      ]),
+    },
+    computed: {
+      ...mapState(globalStore.name, [
+        'primaryDrawer',
+        'siteName'
+      ]),
+    },
   }
 </script>
