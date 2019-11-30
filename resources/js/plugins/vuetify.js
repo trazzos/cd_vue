@@ -8,7 +8,7 @@ import es from 'vuetify/src/locale/es.ts';
 Vue.use(Vuetify);
 const opts = {
     theme: {
-        dark: true,
+        dark: false,
     },
     lang: {
         locales: { en, es },
