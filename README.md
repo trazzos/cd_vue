@@ -42,7 +42,7 @@ Open your hosts file as admin. Host file is located at
 ### C:\Windows\System32\drivers\etc\hosts
 
 Add
-### 192.168.10.10  homestead.test
+### 192.168.10.10  comprobantedigital.test
 
 Go to c:/homestead and run (RUN THIS AS AN ADMINISTRATOR!!)
 ### cd c:/homestead
