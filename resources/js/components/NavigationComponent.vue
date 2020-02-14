@@ -24,7 +24,15 @@
                     <v-list-item-title>Empresa</v-list-item-title>
                 </v-list-item-content>
             </v-list-item>
-            <v-list-item link :to="{ name: 'entidades' }">
+            <v-list-item link :to="{ name: 'proyect' }">
+                <v-list-item-action>
+                    <v-icon>mdi-contact-mail</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                    <v-list-item-title>Proyectos</v-list-item-title>
+                </v-list-item-content>
+            </v-list-item>
+            <v-list-item link :to="{ name: 'entidad' }">
                 <v-list-item-action>
                     <v-icon>mdi-contact-mail</v-icon>
                 </v-list-item-action>
