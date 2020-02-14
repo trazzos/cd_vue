@@ -101,9 +101,9 @@ https://www.freecodecamp.org/news/how-to-build-a-single-page-application-using-v
 
 
 #Errors
-yarn watch-poll fails
+ - yarn watch-poll fails
 do 
-yarn global add cross-env
+ - yarn global add cross-env
 
 
 
