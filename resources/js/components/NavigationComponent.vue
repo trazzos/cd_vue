@@ -24,6 +24,14 @@
                     <v-list-item-title>Empresa</v-list-item-title>
                 </v-list-item-content>
             </v-list-item>
+            <v-list-item link :to="{ name: 'entidades' }">
+                <v-list-item-action>
+                    <v-icon>mdi-contact-mail</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                    <v-list-item-title>Entidades</v-list-item-title>
+                </v-list-item-content>
+            </v-list-item>
         </v-list>
     </v-navigation-drawer>
 </template>
