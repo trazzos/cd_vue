@@ -85,6 +85,9 @@ NOTE: All the php artisan commmads must be run from inside homestead (vagrant ss
 Copy .env.example file and create your new .env file
 
 Run (From ssh)
+### cd yourproject
+### composer install
+### yarn install --no-bin-links
 ### php artisan migrate
 
 # Front end
