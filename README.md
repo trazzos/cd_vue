@@ -88,6 +88,7 @@ Run (From ssh)
 ### cd yourproject
 ### composer install
 ### yarn install --no-bin-links
+### php artisan key:generate
 ### php artisan migrate
 
 # Front end
