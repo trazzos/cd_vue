@@ -5,10 +5,10 @@ namespace Modules\Company\Http\Requests;
 use App\Http\Requests\Request;
 
 /**
- * Class CompanyPostValidationRequest
+ * Class CompanyDeleteValidationRequest
  * @package Modules\Company\Http\Requests
  */
-class CompanyPostValidationRequest extends Request {
+class CompanyDeleteValidationRequest extends Request {
     /**
      * Determine if the user is authorized to make this request.
      * @return bool
@@ -24,12 +24,7 @@ class CompanyPostValidationRequest extends Request {
      */
     public function rules() {
         return [
-            'name' => 'string|required',
-            'address' => 'string|required',
-            'cp' => 'string|required',
-            'state' => 'string|required',
-            'phone' => 'string|required',
-            'email' => 'string:email|required',
+            'uuid' => 'string|required'
         ];
     }
 }
