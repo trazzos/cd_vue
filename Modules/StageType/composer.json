@@ -1,0 +1,26 @@
+{
+    "name": "nwidart/stagetype",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\StageType\\Providers\\StageTypeServiceProvider",
+                "Modules\\StageType\\Providers\\RepositoryServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\StageType\\": ""
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "name": "nwidart/task",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Task\\Providers\\TaskServiceProvider",
+                "Modules\\Task\\Providers\\RepositoryServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Task\\": ""
+        }
+    }
+}

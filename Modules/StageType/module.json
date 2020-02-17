@@ -1,0 +1,14 @@
+{
+    "name": "StageType",
+    "alias": "stagetype",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\StageType\\Providers\\StageTypeServiceProvider",
+        "Modules\\StageType\\Providers\\RepositoryServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
