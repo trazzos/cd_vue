@@ -12,6 +12,9 @@ use Modules\StageType\Services\StageTypeGetService;
  * @package Modules\StageType\Http\Controllers
  */
 class StageTypeGetController extends Controller {
+    /**
+    * @var stagetypeGetService
+    */    
     private $stagetypeGetService;
 
     /**
@@ -27,8 +30,7 @@ class StageTypeGetController extends Controller {
      * @return JsonResponse
      */
     public function __invoke(StageTypeGetValidationRequest $request) : JsonResponse {
-        $stage_type_id = $request->get('stage_type_id');
-        //$response = $this->stagetypeGetService->info($uuid); //TODO pass real id
+        $id = $request->get('id');
         $response = $this->stagetypeGetService->list(); //TODO temporary
         return $this->handleAjaxJsonResponse($response);
     }

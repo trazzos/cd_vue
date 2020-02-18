@@ -18,7 +18,3 @@ Route::group(['prefix' => 'task'], function() {
     Route::patch('', 'TaskPatchController')->name('taskPatch');
     Route::delete('', 'TaskDeleteController')->name('taskDelete');
 });
-
-/* Route::middleware('auth:api')->get('/task', function (Request $request) {
-    return $request->user();
-}); */

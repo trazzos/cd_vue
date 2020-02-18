@@ -16,7 +16,7 @@ class StageTypeDeleteService {
     private $stagetypeRepo;
 
     /**
-     * StageTypeGetService constructor.
+     * StageTypeDeleteService constructor.
      * @param StageTypeRepositoryInterface $stagetypeRepo
      */
     public function __construct(StageTypeRepositoryInterface $stagetypeRepo) {
@@ -27,7 +27,7 @@ class StageTypeDeleteService {
      * @param array $data
      * @return StageType|null
      */
-    public function delete($stage_type_id) : ?bool {
-        return $this->stagetypeRepo->deleteWhere("stage_type_id","=",$stage_type_id);
+    public function delete($id) : ?bool {
+        return $this->stagetypeRepo->deleteWhere("id","=",$id);
     }
 }

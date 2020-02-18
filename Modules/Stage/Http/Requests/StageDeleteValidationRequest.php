@@ -24,7 +24,7 @@ class StageDeleteValidationRequest extends Request {
      */
     public function rules() {
         return [
-            'stage_id' => 'integer|required',
+            'id' => 'integer|required',
         ];
     }
 }

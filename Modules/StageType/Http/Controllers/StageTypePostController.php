@@ -12,10 +12,13 @@ use Modules\StageType\Services\StageTypeCreateService;
  * @package Modules\StageType\Http\Controllers
  */
 class StageTypePostController extends Controller {
+    /**
+    * @var stagetypeCreateService
+    */
     private $stagetypeCreateService;
 
     /**
-     * StageTypeGetController constructor.
+     * StageTypePostController constructor.
      * @param StageTypeCreateService $stagetypeCreateService
      */
     public function __construct(StageTypeCreateService $stagetypeCreateService) {

@@ -16,7 +16,7 @@ class StageTypePatchService {
     private $stagetypeRepo;
 
     /**
-     * StageTypeGetService constructor.
+     * StageTypePatchService constructor.
      * @param StageTypeRepositoryInterface $stagetypeRepo
      */
     public function __construct(StageTypeRepositoryInterface $stagetypeRepo) {
@@ -27,8 +27,8 @@ class StageTypePatchService {
      * @param array $data
      * @return StageType|null
      */
-    public function update(array $data, $stage_type_id) : ?bool {
-        $stage_type = $this->stagetypeRepo->update($data, $stage_type_id, "stage_type_id");
+    public function update(array $data, $id) : ?bool {
+        $stage_type = $this->stagetypeRepo->update($data, $id, "id");
 
         if(!$stage_type) {
             ThrowException::notFound();

@@ -14,7 +14,7 @@ class CreateStageTable extends Migration
     public function up()
     {
         Schema::create('stage', function (Blueprint $table) {
-            $table->integerIncrements('stage_id');
+            $table->integerIncrements('id');
             $table->integer('stage_type_id')->unsigned();
             $table->foreign('stage_type_id')->references('stage_type_id')->on('stage_type');            
             $table->string('name');

@@ -12,10 +12,13 @@ use Modules\StageType\Services\StageTypePatchService;
  * @package Modules\StageType\Http\Controllers
  */
 class StageTypePatchController extends Controller {
+    /**
+    * @var stagetypePatchService
+    */
     private $stagetypePatchService;
 
     /**
-     * StageTypeGetController constructor.
+     * StageTypePatchController constructor.
      * @param StageTypePatchService $stagetypePatchService
      */
     public function __construct(StageTypePatchService $stagetypePatchService) {
@@ -27,9 +30,7 @@ class StageTypePatchController extends Controller {
      * @return JsonResponse
      */
     public function __invoke(StageTypePatchValidationRequest $request) : JsonResponse {
-        //$data = $request->validated();    
-        //$response = $this->stagetypePatchService->update($data, $stage_type_id);
-        $response = $this->stagetypePatchService->update($request->validated(), $request->get("stage_type_id"));
+        $response = $this->stagetypePatchService->update($request->validated(), $request->get("id"));
         return $this->handleAjaxJsonResponse($response);
     }
 }

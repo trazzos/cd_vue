@@ -12,6 +12,9 @@ use Modules\Task\Services\TaskGetService;
  * @package Modules\Task\Http\Controllers
  */
 class TaskGetController extends Controller {
+    /**
+    * @var taskGetService
+    */
     private $taskGetService;
 
     /**
@@ -27,8 +30,7 @@ class TaskGetController extends Controller {
      * @return JsonResponse
      */
     public function __invoke(TaskGetValidationRequest $request) : JsonResponse {
-        $task_id = $request->get('task_id');
-        //$response = $this->taskGetService->info($uuid); //TODO pass real id
+        $id = $request->get('id');
         $response = $this->taskGetService->list(); //TODO temporary
         return $this->handleAjaxJsonResponse($response);
     }

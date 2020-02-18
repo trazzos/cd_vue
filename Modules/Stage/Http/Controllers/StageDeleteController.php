@@ -12,10 +12,13 @@ use Modules\Stage\Services\StageDeleteService;
  * @package Modules\Stage\Http\Controllers
  */
 class StageDeleteController extends Controller {
+    /**
+    * @var stageDeleteService
+    */
     private $stageDeleteService;
 
     /**
-     * StageGetController constructor.
+     * StageDeleteController constructor.
      * @param StageDeleteService $stageDeleteService
      */
     public function __construct(StageDeleteService $stageDeleteService) {
@@ -28,7 +31,7 @@ class StageDeleteController extends Controller {
      */
     public function __invoke(StageDeleteValidationRequest $request) : JsonResponse {
         $request->validated();
-        $response = $this->stageDeleteService->delete($request->get("stage_id"));
+        $response = $this->stageDeleteService->delete($request->get("id"));
 
         return $this->handleAjaxJsonResponse($response);
     }

@@ -16,7 +16,7 @@ class StageTypeCreateService {
     private $stagetypeRepo;
 
     /**
-     * StageTypeGetService constructor.
+     * StageTypeCreateService constructor.
      * @param StageTypeRepositoryInterface $stagetypeRepo
      */
     public function __construct(StageTypeRepositoryInterface $stagetypeRepo) {

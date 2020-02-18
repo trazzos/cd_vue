@@ -20,8 +20,3 @@ Route::group(['prefix' => 'stagetype'], function() {
     Route::patch('', 'StageTypePatchController')->name('stagetypePatch');
     Route::delete('', 'StageTypeDeleteController')->name('stagetypeDelete');
 });
-
-/* 
-Route::middleware('auth:api')->get('/stagetype', function (Request $request) {
-    return $request->user();
-}); */

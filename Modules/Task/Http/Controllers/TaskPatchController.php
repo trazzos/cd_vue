@@ -12,10 +12,13 @@ use Modules\Task\Services\TaskPatchService;
  * @package Modules\Task\Http\Controllers
  */
 class TaskPatchController extends Controller {
+    /**
+    * @var taskPatchService
+    */
     private $taskPatchService;
 
     /**
-     * TaskGetController constructor.
+     * TaskPatchController constructor.
      * @param TaskPatchService $taskPatchService
      */
     public function __construct(TaskPatchService $taskPatchService) {
@@ -27,7 +30,7 @@ class TaskPatchController extends Controller {
      * @return JsonResponse
      */
     public function __invoke(TaskPatchValidationRequest $request) : JsonResponse {
-        $response = $this->taskPatchService->update($request->validated(), $request->get("task_id"));
+        $response = $this->taskPatchService->update($request->validated(), $request->get("id"));
         return $this->handleAjaxJsonResponse($response);
     }
 }

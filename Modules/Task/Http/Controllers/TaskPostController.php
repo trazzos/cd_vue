@@ -12,10 +12,13 @@ use Modules\Task\Services\TaskCreateService;
  * @package Modules\Task\Http\Controllers
  */
 class TaskPostController extends Controller {
+    /**
+    * @var taskCreateService
+    */
     private $taskCreateService;
 
     /**
-     * TaskGetController constructor.
+     * TaskPostController constructor.
      * @param TaskCreateService $taskCreateService
      */
     public function __construct(TaskCreateService $taskCreateService) {

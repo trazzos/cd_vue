@@ -16,7 +16,7 @@ class TaskCreateService {
     private $taskRepo;
 
     /**
-     * TaskGetService constructor.
+     * TaskCreateService constructor.
      * @param TaskRepositoryInterface $taskRepo
      */
     public function __construct(TaskRepositoryInterface $taskRepo) {

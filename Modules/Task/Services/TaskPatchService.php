@@ -16,7 +16,7 @@ class TaskPatchService {
     private $taskRepo;
 
     /**
-     * TaskGetService constructor.
+     * TaskPatchService constructor.
      * @param TaskRepositoryInterface $taskRepo
      */
     public function __construct(TaskRepositoryInterface $taskRepo) {
@@ -27,8 +27,8 @@ class TaskPatchService {
      * @param array $data
      * @return Task|null
      */
-    public function update(array $data, $task_id) : ?bool {
-        $task = $this->taskRepo->update($data, $task_id, "task_id");
+    public function update(array $data, $id) : ?bool {
+        $task = $this->taskRepo->update($data, $id, "id");
 
         if(!$task) {
             ThrowException::notFound();

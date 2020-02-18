@@ -14,8 +14,7 @@ class CreateStageTypeTable extends Migration
     public function up()
     {
         Schema::create('stage_type', function (Blueprint $table) {
-            //$table->bigIncrements('stage_type_id');
-            $table->integerIncrements('stage_type_id');
+            $table->integerIncrements('id');
             $table->string('name');
             $table->timestamps();
             $table->softDeletes();

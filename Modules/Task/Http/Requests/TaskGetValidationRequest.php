@@ -23,8 +23,6 @@ class TaskGetValidationRequest extends Request {
      * @return array
      */
     public function rules() {
-        return [
-            /* 'stage_id' => 'string|required' */
-        ];
+        return [];
     }
 }

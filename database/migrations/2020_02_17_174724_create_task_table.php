@@ -14,7 +14,7 @@ class CreateTaskTable extends Migration
     public function up()
     {
         Schema::create('task', function (Blueprint $table) {
-            $table->integerIncrements('task_id');
+            $table->integerIncrements('id');
             $table->integer('stage_id')->unsigned();
             $table->foreign('stage_id')->references('stage_id')->on('stage');            
             $table->string('name');

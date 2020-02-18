@@ -23,8 +23,6 @@ class StageTypeGetValidationRequest extends Request {
      * @return array
      */
     public function rules() {
-        return [
-            /* 'stage_type_id' => 'string|required' */
-        ];
+        return [];
     }
 }

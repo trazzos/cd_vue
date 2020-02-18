@@ -31,7 +31,7 @@ class StageGetService {
     * At this point everything is validated, we shouldn't check anything else
      */
     public function info($id) : ?Stage {
-        $stage = $this->stageRepo->findBy('stage_id', $id);
+        $stage = $this->stageRepo->findBy('id', $id);
 
         if(!$stage) {
             ThrowException::notFound();
@@ -48,11 +48,6 @@ class StageGetService {
      */
     public function list() : ?Collection {
         $stages= $this->stageRepo->all();
-
-        /*if(!$stage_s) {
-            ThrowException::notFound();
-        }*/
-
         return $stages;
     }
 }

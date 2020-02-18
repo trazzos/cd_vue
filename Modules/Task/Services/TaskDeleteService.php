@@ -6,7 +6,7 @@ use Modules\Task\Models\Task;
 use Modules\Task\Repositories\Interfaces\TaskRepositoryInterface;
 
 /**
- * Class TaskService
+ * Class TaskDeleteService
  * @package Modules\Task\Services
  */
 class TaskDeleteService {
@@ -16,7 +16,7 @@ class TaskDeleteService {
     private $taskRepo;
 
     /**
-     * TaskGetService constructor.
+     * TaskDeleteService constructor.
      * @param TaskRepositoryInterface $taskRepo
      */
     public function __construct(TaskRepositoryInterface $taskRepo) {
@@ -27,7 +27,7 @@ class TaskDeleteService {
      * @param array $data
      * @return Task|null
      */
-    public function delete($task_id) : ?bool {
-        return $this->taskRepo->deleteWhere("task_id","=",$task_id);
+    public function delete($id) : ?bool {
+        return $this->taskRepo->deleteWhere("id","=",$id);
     }
 }

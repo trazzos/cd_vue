@@ -31,7 +31,7 @@ class TaskGetService {
     * At this point everything is validated, we shouldn't check anything else
      */
     public function info($id) : ?Task {
-        $task = $this->taskRepo->findBy('task_id', $id);
+        $task = $this->taskRepo->findBy('id', $id);
 
         if(!$task) {
             ThrowException::notFound();
@@ -48,11 +48,6 @@ class TaskGetService {
      */
     public function list() : ?Collection {
         $tasks= $this->taskRepo->all();
-
-        /*if(!$task_s) {
-            ThrowException::notFound();
-        }*/
-
         return $tasks;
     }
 }

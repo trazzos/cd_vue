@@ -16,7 +16,7 @@ class StagePatchService {
     private $stageRepo;
 
     /**
-     * StageGetService constructor.
+     * StagePatchService constructor.
      * @param StageRepositoryInterface $stageRepo
      */
     public function __construct(StageRepositoryInterface $stageRepo) {
@@ -27,8 +27,8 @@ class StagePatchService {
      * @param array $data
      * @return Stage|null
      */
-    public function update(array $data, $stage_id) : ?bool {
-        $stage = $this->stageRepo->update($data, $stage_id, "stage_id");
+    public function update(array $data, $id) : ?bool {
+        $stage = $this->stageRepo->update($data, $id, "id");
 
         if(!$stage) {
             ThrowException::notFound();

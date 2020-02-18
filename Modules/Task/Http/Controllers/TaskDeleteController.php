@@ -12,10 +12,13 @@ use Modules\Task\Services\TaskDeleteService;
  * @package Modules\Task\Http\Controllers
  */
 class TaskDeleteController extends Controller {
+    /**
+    * @var taskDeleteService
+    */
     private $taskDeleteService;
 
     /**
-     * TaskGetController constructor.
+     * TaskDeleteController constructor.
      * @param TaskDeleteService $taskDeleteService
      */
     public function __construct(TaskDeleteService $taskDeleteService) {
@@ -28,7 +31,7 @@ class TaskDeleteController extends Controller {
      */
     public function __invoke(TaskDeleteValidationRequest $request) : JsonResponse {
         $request->validated();
-        $response = $this->taskDeleteService->delete($request->get("task_id"));
+        $response = $this->taskDeleteService->delete($request->get("id"));
 
         return $this->handleAjaxJsonResponse($response);
     }

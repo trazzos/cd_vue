@@ -24,6 +24,7 @@ class TaskPatchValidationRequest extends Request {
      */
     public function rules() {
         return [
+            'id' => 'integer|required',
             'stage_id' => 'integer|required',
             'name' => 'string|required',
             'order'=> 'integer|required',
