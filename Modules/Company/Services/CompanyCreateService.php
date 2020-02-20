@@ -2,7 +2,7 @@
 
 namespace Modules\Company\Services;
 
-use Modules\Company\Models\Company;
+use Modules\Company\Models\User;
 use Modules\Company\Repositories\Interfaces\CompanyRepositoryInterface;
 
 /**
@@ -25,9 +25,9 @@ class CompanyCreateService {
 
     /**
      * @param array $data
-     * @return Company|null
+     * @return User|null
      */
-    public function create(array $data) : ?Company {
+    public function create(array $data) : ?User {
         return $this->companyRepo->create($data);
     }
 }

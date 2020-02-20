@@ -28,4 +28,8 @@ class Company extends Model {
     protected $guarded = [];
 
     protected $hidden = ['id'];
+
+    public function user() {
+        return $this->belongsTo('Modules\User\Models\User');
+    }
 }

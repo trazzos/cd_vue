@@ -1,12 +1,12 @@
 <?php
 
-use Modules\Company\Models\Company;
+use Modules\Company\Models\User;
 
-$factory->define(Company::class, function (Faker\Generator $faker) {
+$factory->define(User::class, function (Faker\Generator $faker) {
     return [];
 });
 
-$factory->defineAs(Company::class, 'unit', function (Faker\Generator $faker) {
+$factory->defineAs(User::class, 'unit', function (Faker\Generator $faker) {
     return [
         'id' => 1,
     ];
