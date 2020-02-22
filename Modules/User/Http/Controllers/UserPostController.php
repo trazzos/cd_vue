@@ -12,6 +12,9 @@ use Modules\User\Services\UserCreateService;
  * @package Modules\User\Http\Controllers
  */
 class UserPostController extends Controller {
+    /**
+     * @var $userCreateService
+     */
     private $userCreateService;
 
     /**

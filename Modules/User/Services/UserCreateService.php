@@ -16,7 +16,7 @@ class UserCreateService {
     private $userRepo;
 
     /**
-     * UserGetService constructor.
+     * UserCreateService constructor.
      * @param UserRepositoryInterface $userRepo
      */
     public function __construct(UserRepositoryInterface $userRepo) {

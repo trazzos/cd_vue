@@ -8,14 +8,17 @@ use Modules\User\Http\Requests\UserDeleteValidationRequest;
 use Modules\User\Services\UserDeleteService;
 
 /**
- * Class UserPostController
+ * Class UserDeleteController
  * @package Modules\User\Http\Controllers
  */
 class UserDeleteController extends Controller {
+    /**
+     * @var $userDeleteService
+     */
     private $userDeleteService;
 
     /**
-     * UserGetController constructor.
+     * UserDeleteController constructor.
      * @param UserDeleteService $userDeleteService
      */
     public function __construct(UserDeleteService $userDeleteService) {

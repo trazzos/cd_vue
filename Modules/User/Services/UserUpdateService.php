@@ -16,7 +16,7 @@ class UserUpdateService {
     private $userRepo;
 
     /**
-     * UserGetService constructor.
+     * UserUpdateService constructor.
      * @param UserRepositoryInterface $userRepo
      */
     public function __construct(UserRepositoryInterface $userRepo) {
@@ -28,8 +28,7 @@ class UserUpdateService {
      * @return User|null
      */
     public function update(array $data) : ?User {
-        $this->userRepo->update($data, $data["id"]);
-        $user = $this->userRepo->findBy('id', $data["id"]);
+        $user = $this->userRepo->updateAndReturn($data, $data["id"]);
         return $user;        
     }
 }

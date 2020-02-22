@@ -5,7 +5,7 @@ namespace Modules\User\Http\Requests;
 use App\Http\Requests\Request;
 
 /**
- * Class UserPostValidationRequest
+ * Class UserDeleteValidationRequest
  * @package Modules\User\Http\Requests
  */
 class UserDeleteValidationRequest extends Request {

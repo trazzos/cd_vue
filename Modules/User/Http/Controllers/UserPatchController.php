@@ -12,10 +12,13 @@ use Modules\User\Services\UserUpdateService;
  * @package Modules\User\Http\Controllers
  */
 class UserPatchController extends Controller {
+    /**
+     * @var $userPatchController
+     */
     private $userPatchController;
 
     /**
-     * UserGetController constructor.
+     * userPatchController constructor.
      * @param UserUpdateService $userPatchController
      */
     public function __construct(UserUpdateService $userPatchController) {

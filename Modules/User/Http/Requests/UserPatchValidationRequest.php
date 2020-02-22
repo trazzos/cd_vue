@@ -5,7 +5,7 @@ namespace Modules\User\Http\Requests;
 use App\Http\Requests\Request;
 
 /**
- * Class UserPostValidationRequest
+ * Class UserPatchValidationRequest
  * @package Modules\User\Http\Requests
  */
 class UserPatchValidationRequest extends Request {
@@ -31,7 +31,4 @@ class UserPatchValidationRequest extends Request {
             'role' => 'string|required',
         ];
     }
-    /*public function messages(){
-
-    }*/
 }

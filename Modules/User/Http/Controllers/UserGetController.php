@@ -12,6 +12,9 @@ use Modules\User\Services\UserGetService;
  * @package Modules\User\Http\Controllers
  */
 class UserGetController extends Controller {
+    /**
+     * @var $userGetService
+     */
     private $userGetService;
 
     /**
@@ -27,11 +30,9 @@ class UserGetController extends Controller {
      * @return JsonResponse
      */
     public function __invoke(UserGetValidationRequest $request) : JsonResponse {
-        $id = $request->get('id');
-        if(!$id)
-            $response = $this->userGetService->list(); //TODO temporary
-        else
-            $response = $this->userGetService->info($id); //TODO pass real id
+        $data = $request->validated();
+        var_dump($data);exit;
+        $response = $this->userGetService->list($data); //TODO temporary
         
         return $this->handleAjaxJsonResponse($response);
     }
