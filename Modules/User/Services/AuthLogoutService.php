@@ -3,7 +3,7 @@
 namespace Modules\User\Services;
 
 use Illuminate\Routing\Controller;
-use Tymon\JWTAuth\JWTAuth;
+use JWTAuth;
 
 class AuthLogoutService extends Controller {
     public function logout() {

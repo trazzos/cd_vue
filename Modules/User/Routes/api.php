@@ -18,7 +18,7 @@ Route::group(['prefix' => 'auth'], function() {
 
     Route::group(['middleware' => 'jwt.auth'], function(){
         Route::get('user', 'AuthUserController')->name('authUser');
-        Route::post('user', 'AuthLogoutController')->name('authLogout');
+        Route::post('logout', 'AuthLogoutController')->name('authLogout');
     });
 
     Route::group(['middleware' => 'jwt.refresh'], function(){
