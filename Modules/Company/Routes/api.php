@@ -16,9 +16,7 @@ use Illuminate\Http\Request;
 Route::group(['prefix' => 'company'], function() {
     Route::get('', 'CompanyGetController')->name('companyGet');
     Route::post('', 'CompanyPostController')->name('companyPost');
+    Route::patch('', 'CompanyPatchController')->name('companyPatch');
+    Route::delete('', 'CompanyDeleteController')->name('companyDelete');
 });
 
-//TODO we are not using any authentication yet.
-/*Route::middleware('auth:api')->get('/company', function (Request $request) {
-    return $request->user();
-});*/

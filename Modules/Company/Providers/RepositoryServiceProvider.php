@@ -7,7 +7,7 @@ use Modules\Company\Repositories\Implementation;
 
 /**
  * Class RepositoryServiceProvider
- * @package Modules\Lti\Providers
+ * @package Modules\Company\Providers
  */
 class RepositoryServiceProvider extends ServiceProvider {
     /**

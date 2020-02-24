@@ -23,8 +23,6 @@ class CompanyGetValidationRequest extends Request {
      * @return array
      */
     public function rules() {
-        return [
-            'uuid' => 'string|required'
-        ];
+        return [];
     }
 }

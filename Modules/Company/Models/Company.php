@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @package Modules\Company\Models
  */
 class Company extends Model {
-    use SoftDeletes, UuidTrait;
+    use SoftDeletes;
 
     /**
      * The database table used by the model.
@@ -27,5 +27,9 @@ class Company extends Model {
      */
     protected $guarded = [];
 
-    protected $hidden = ['id'];
+    /* protected $hidden = ['id']; */
+    
+    public function invoice() {
+        return $this->belongsTo('Modules\Invoice\Models\Invoice');
+    }
 }

@@ -16,7 +16,7 @@ class CompanyCreateService {
     private $companyRepo;
 
     /**
-     * CompanyGetService constructor.
+     * CompanyCreateService constructor.
      * @param CompanyRepositoryInterface $companyRepo
      */
     public function __construct(CompanyRepositoryInterface $companyRepo) {

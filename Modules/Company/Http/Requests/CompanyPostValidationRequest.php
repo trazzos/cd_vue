@@ -24,8 +24,20 @@ class CompanyPostValidationRequest extends Request {
      */
     public function rules() {
         return [
-            'taxpayer_id' => 'string|required|min:12|max:13|unique:company',
+            'ftr' => 'string|required|min:12|max:13|unique:company',
             'name' => 'string|required',
+            'observation' => 'string',
+            'email' => 'string',
+            'phone' => 'string',
+            'mobile' => 'string',
+            'postal_code' => 'string',
+            'address' => 'string',
+            'exterior_number' => 'string',
+            'interior_number' => 'string',
+            'suburb' => 'string',
+            'location_id' => 'integer',
+            'municipio_id' => 'integer',
+            'state_id' => 'integer',
         ];
     }
 }

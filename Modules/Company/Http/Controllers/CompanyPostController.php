@@ -12,10 +12,13 @@ use Modules\Company\Services\CompanyCreateService;
  * @package Modules\Company\Http\Controllers
  */
 class CompanyPostController extends Controller {
+    /**
+    * @var companyCreateService
+    */
     private $companyCreateService;
 
     /**
-     * CompanyGetController constructor.
+     * CompanyPostController constructor.
      * @param CompanyCreateService $companyCreateService
      */
     public function __construct(CompanyCreateService $companyCreateService) {
