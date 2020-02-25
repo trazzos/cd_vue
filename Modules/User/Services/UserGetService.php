@@ -34,7 +34,7 @@ class UserGetService {
     public function list($data) : ?Collection {
         $users = $this->userRepo->whereIn("id",$data); //$ids es un arreglo de ids $ids = [1, 2, 3, 4]
         
-        if(!$user) {
+        if(!$users) {
             ThrowException::notFound();
         }
         
