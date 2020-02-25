@@ -5,10 +5,10 @@ namespace Modules\Company\Http\Requests;
 use App\Http\Requests\Request;
 
 /**
- * Class CompanyGetValidationRequest
+ * Class CompanyDeleteValidationRequest
  * @package Modules\Company\Http\Requests
  */
-class CompanyGetValidationRequest extends Request {
+class CompanyDeleteValidationRequest extends Request {
     /**
      * Determine if the user is authorized to make this request.
      * @return bool
@@ -23,6 +23,8 @@ class CompanyGetValidationRequest extends Request {
      * @return array
      */
     public function rules() {
-        return [];
+        return [
+            'id' => 'integer|required',
+        ];
     }
 }

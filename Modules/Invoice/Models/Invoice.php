@@ -1,16 +1,16 @@
 <?php
 
-namespace Modules\Company\Models;
+namespace Modules\Invoice\Models;
 
 use App\Models\Traits\UuidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Company
- * @package Modules\Company\Models
+ * Class Invoice
+ * @package Modules\Invoice\Models
  */
-class Company extends Model {
+class Invoice extends Model {
     use SoftDeletes;
 
     /**
@@ -18,7 +18,7 @@ class Company extends Model {
      *
      * @var string
      */
-    protected $table = 'company';
+    protected $table = 'invoice';
 
     /**
      * The attributes that are mass assignable.

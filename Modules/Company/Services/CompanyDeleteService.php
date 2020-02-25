@@ -6,17 +6,17 @@ use Modules\Company\Models\Company;
 use Modules\Company\Repositories\Interfaces\CompanyRepositoryInterface;
 
 /**
- * Class CompanyCreateService
+ * Class CompanyDeleteService
  * @package Modules\Company\Services
  */
-class CompanyCreateService {
+class CompanyDeleteService {
     /**
      * @var CompanyRepositoryInterface
      */
     private $companyRepo;
 
     /**
-     * CompanyCreateService constructor.
+     * CompanyDeleteService constructor.
      * @param CompanyRepositoryInterface $companyRepo
      */
     public function __construct(CompanyRepositoryInterface $companyRepo) {
@@ -24,10 +24,10 @@ class CompanyCreateService {
     }
 
     /**
-     * @param array $data
-     * @return Company|null
+     * @param $id
+     * @return false|true
      */
-    public function create(array $data) : ?Company {
-        return $this->companyRepo->create($data);
+    public function delete($id): ? bool {
+        return $this->companyRepo->deleteWhere("id","=",$id);
     }
 }

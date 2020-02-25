@@ -1,14 +1,14 @@
 <?php
 
-namespace Modules\Company\Http\Requests;
+namespace Modules\Invoice\Http\Requests;
 
 use App\Http\Requests\Request;
 
 /**
- * Class CompanyGetValidationRequest
- * @package Modules\Company\Http\Requests
+ * Class InvoiceDeleteValidationRequest
+ * @package Modules\Invoice\Http\Requests
  */
-class CompanyGetValidationRequest extends Request {
+class InvoiceDeleteValidationRequest extends Request {
     /**
      * Determine if the user is authorized to make this request.
      * @return bool
@@ -23,6 +23,8 @@ class CompanyGetValidationRequest extends Request {
      * @return array
      */
     public function rules() {
-        return [];
+        return [
+            'id' => 'integer|required',
+        ];
     }
 }

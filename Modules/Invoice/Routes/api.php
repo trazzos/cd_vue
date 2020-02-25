@@ -1,0 +1,22 @@
+<?php
+
+use Illuminate\Http\Request;
+
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register API routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| is assigned the "api" middleware group. Enjoy building your API!
+|
+*/
+
+//Route::group(['prefix' => 'invoice', 'middleware' => 'jwt.auth'], function() {
+    Route::group(['prefix' => 'invoice'], function() {
+        Route::get('', 'InvoiceGetController')->name('invoiceGet');
+        Route::post('', 'InvoicePostController')->name('invoicePost');
+        Route::patch('', 'InvoicePatchController')->name('invoicePatch');
+        Route::delete('', 'InvoiceDeleteController')->name('invoiceDelete');
+    });

@@ -1,14 +1,14 @@
 <?php
 
-namespace Modules\Company\Http\Requests;
+namespace Modules\Invoice\Http\Requests;
 
 use App\Http\Requests\Request;
 
 /**
- * Class CompanyPostValidationRequest
- * @package Modules\Company\Http\Requests
+ * Class InvoicePostValidationRequest
+ * @package Modules\Invoice\Http\Requests
  */
-class CompanyPostValidationRequest extends Request {
+class InvoicePostValidationRequest extends Request {
     /**
      * Determine if the user is authorized to make this request.
      * @return bool
@@ -24,11 +24,10 @@ class CompanyPostValidationRequest extends Request {
      */
     public function rules() {
         return [
-            'ftr' => 'string|required|min:12|max:13|unique:company',
+            'company_id' => 'integer|required',
             'name' => 'string|required',
-            'location_id' => 'integer|required',
-            'municipio_id' => 'integer|required',
-            'state_id' => 'integer|required',
+            'start' => 'integer|required',
+            'end' => 'integer|required'
         ];
     }
 }

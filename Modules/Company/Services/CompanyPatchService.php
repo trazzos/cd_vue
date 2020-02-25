@@ -6,17 +6,17 @@ use Modules\Company\Models\Company;
 use Modules\Company\Repositories\Interfaces\CompanyRepositoryInterface;
 
 /**
- * Class CompanyCreateService
+ * Class CompanyPatchService
  * @package Modules\Company\Services
  */
-class CompanyCreateService {
+class CompanyPatchService {
     /**
      * @var CompanyRepositoryInterface
      */
     private $companyRepo;
 
     /**
-     * CompanyCreateService constructor.
+     * CompanyPatchService constructor.
      * @param CompanyRepositoryInterface $companyRepo
      */
     public function __construct(CompanyRepositoryInterface $companyRepo) {
@@ -24,10 +24,17 @@ class CompanyCreateService {
     }
 
     /**
-     * @param array $data
-     * @return Company|null
+     * @param $data information to update
+     * @param $id register identifier that will be updated
+     * @return false|true
      */
-    public function create(array $data) : ?Company {
-        return $this->companyRepo->create($data);
+    public function update(array $data, $id) : ?bool {
+        $company = $this->companyRepo->update($data,$id,"id");
+
+        if(!$company) {
+            ThrowException::notFound();
+        }
+
+        return $company;
     }
 }

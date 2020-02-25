@@ -31,7 +31,7 @@ class CompanyGetService {
     * At this point everything is validated, we shouldn't check anything else
      */
     public function info($id) : ?Company {
-        $company = $this->companyRepo->findBy('uuid', $id);
+        $company = $this->companyRepo->findBy('id', $id);
 
         if(!$company) {
             ThrowException::notFound();

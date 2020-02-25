@@ -13,7 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['prefix' => 'company', 'middleware' => 'jwt.auth'], function() {
+//Route::group(['prefix' => 'company', 'middleware' => 'jwt.auth'], function() {
+    Route::group(['prefix' => 'company'], function() {
     Route::get('', 'CompanyGetController')->name('companyGet');
     Route::post('', 'CompanyPostController')->name('companyPost');
+    Route::patch('', 'CompanyPatchController')->name('companyPatch');
+    Route::delete('', 'CompanyDeleteController')->name('companyDelete');
 });

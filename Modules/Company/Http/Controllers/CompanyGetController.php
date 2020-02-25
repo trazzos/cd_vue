@@ -27,8 +27,7 @@ class CompanyGetController extends Controller {
      * @return JsonResponse
      */
     public function __invoke(CompanyGetValidationRequest $request) : JsonResponse {
-        $uuid = $request->get('uuid');
-        //$response = $this->companyGetService->info($uuid); //TODO pass real id
+        $id = $request->get('id');
         $response = $this->companyGetService->list(); //TODO temporary
         return $this->handleAjaxJsonResponse($response);
     }
