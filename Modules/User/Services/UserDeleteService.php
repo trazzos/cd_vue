@@ -28,8 +28,7 @@ class UserDeleteService {
      * @return User|null
      */
     public function delete($id) : ?User {
-        $user = $this->userRepo->findBy('id', $id);
         $this->userRepo->delete($id);
-        return $user;
+        return null;
     }
 }

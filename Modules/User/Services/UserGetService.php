@@ -26,38 +26,19 @@ class UserGetService {
     }
 
     /**
-     * @param $id
-     * @return User|null
-    * At this point everything is validated, we shouldn't check anything else
-     */
-    public function info($id) : ?User {
-        $user = $this->userRepo->findBy('id', $id);
-        if(!$user) {
-            ThrowException::notFound();
-        }
-
-        return $user;
-    }
-
-    /**
      * @param array $data
      * @return User|null
      * At this point everything is validated, we shouldn't check anything else
      * TODO this is just a test  function to show backend and frontend connection
      */
     public function list($data) : ?Collection {
-        $users = array();
-        foreach($data AS $clave=>$value){            
-            echo $value;
-            $user = $this->userRepo->findBy('id', $value);
-            array_push($users,$user);
+        $users = $this->userRepo->whereIn("id",$data); //$ids es un arreglo de ids $ids = [1, 2, 3, 4]
+        
+        if(!$user) {
+            ThrowException::notFound();
         }
         
-        /*if(!$user) {
-            ThrowException::notFound();
-        }*/
-        $collection = Collection::make($users);
 
-        return $collection;
+        return $users;
     }
 }
