@@ -11,7 +11,8 @@
         "laravel": {
             "providers": [
                 "Modules\\User\\Providers\\UserServiceProvider",
-                "Modules\\User\\Providers\\RepositoryServiceProvider"
+                "Modules\\User\\Providers\\RepositoryServiceProvider",
+                "Modules\\User\\Providers\\UserServiceProvider"
             ],
             "aliases": {
 

@@ -178,6 +178,7 @@ return [
         //Own providers
         App\Providers\ReplyServiceProvider::class,
         App\Providers\ThrowExceptionServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
 
     ],
 
@@ -232,6 +233,7 @@ return [
         //Own facades
         'Reply' => App\Facades\Reply::class,
         'ThrowException' => App\Facades\ThrowException::class,
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
     ],
 
 ];
