@@ -13,12 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['prefix' => 'company'], function() {
+Route::group(['prefix' => 'company', 'middleware' => 'jwt.auth'], function() {
     Route::get('', 'CompanyGetController')->name('companyGet');
     Route::post('', 'CompanyPostController')->name('companyPost');
 });
-
-//TODO we are not using any authentication yet.
-/*Route::middleware('auth:api')->get('/company', function (Request $request) {
-    return $request->user();
-});*/

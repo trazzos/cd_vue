@@ -20,7 +20,15 @@ Route::group(['prefix' => 'user'], function() {
     Route::delete('', 'UserDeleteController')->name('userDelete');
 });
 
-//TODO we are not using any authentication yet.
-/*Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});*/
+Route::group(['prefix' => 'auth'], function() {
+    Route::post('login', 'AuthLoginController')->name('authLogin');
+
+    Route::group(['middleware' => 'jwt.auth'], function(){
+        Route::get('user', 'AuthUserController')->name('authUser');
+        Route::post('logout', 'AuthLogoutController')->name('authLogout');
+    });
+
+    Route::group(['middleware' => 'jwt.refresh'], function(){
+        Route::get('refresh', 'AuthRefreshController')->name('authRefresh');
+    });
+});
