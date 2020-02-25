@@ -13,8 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-//Route::group(['prefix' => 'invoice', 'middleware' => 'jwt.auth'], function() {
-    Route::group(['prefix' => 'invoice'], function() {
+Route::group(['prefix' => 'invoice', 'middleware' => 'jwt.auth'], function() {
         Route::get('', 'InvoiceGetController')->name('invoiceGet');
         Route::post('', 'InvoicePostController')->name('invoicePost');
         Route::patch('', 'InvoicePatchController')->name('invoicePatch');
