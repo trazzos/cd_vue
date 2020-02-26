@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['prefix' => 'user'], function() {
+Route::group(['prefix' => 'user', "middleware" => 'jwt.auth'], function() {
     Route::get('', 'UserGetController')->name('userGet');
     Route::post('', 'UserPostController')->name('userPost');
     Route::patch('', 'UserPatchController')->name('userPatch');
