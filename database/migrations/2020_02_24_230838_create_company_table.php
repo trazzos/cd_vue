@@ -22,7 +22,7 @@ class CreateCompanyTable extends Migration
             $table->string('phone')->nullable();
             $table->string('mobile')->nullable();
             $table->string('postal_code')->nullable();
-            $table->string('adress')->nullable();
+            $table->string('address')->nullable();
             $table->string('exterior_number')->nullable();
             $table->string('interior_number')->nullable();
             $table->string('suburb')->nullable();

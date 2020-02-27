@@ -12,6 +12,9 @@ use Modules\Invoice\Services\InvoicePatchService;
  * @package Modules\Invoice\Http\Controllers
  */
 class InvoicePatchController extends Controller {
+    /**
+     * @var $invoicePatchService
+     */
     private $invoicePatchService;
 
     /**
@@ -27,7 +30,7 @@ class InvoicePatchController extends Controller {
      * @return JsonResponse
      */
     public function __invoke(InvoicePatchValidationRequest $request) : JsonResponse {
-        $response = $this->invoicePatchService->update($request->validated(),$request->get("id"));
+        $response = $this->invoicePatchService->update($request->get("id"));
         return $this->handleAjaxJsonResponse($response);
     }
 }

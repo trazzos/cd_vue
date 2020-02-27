@@ -12,6 +12,9 @@ use Modules\Company\Services\CompanyGetService;
  * @package Modules\Company\Http\Controllers
  */
 class CompanyGetController extends Controller {
+    /**
+     * @var $companyGetService
+     */
     private $companyGetService;
 
     /**

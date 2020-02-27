@@ -27,5 +27,4 @@ class Invoice extends Model {
      */
     protected $guarded = [];
 
-    /* protected $hidden = ['id']; */
 }

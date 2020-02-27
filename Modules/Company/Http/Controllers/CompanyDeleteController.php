@@ -12,6 +12,9 @@ use Modules\Company\Services\CompanyDeleteService;
  * @package Modules\Company\Http\Controllers
  */
 class CompanyDeleteController extends Controller {
+    /**
+     * @var $companyDeleteService
+     */
     private $companyDeleteService;
 
     /**
@@ -27,7 +30,6 @@ class CompanyDeleteController extends Controller {
      * @return JsonResponse
      */
     public function __invoke(CompanyDeleteValidationRequest $request) : JsonResponse {
-        $request->validated();
         $response = $this->companyDeleteService->delete($request->get("id"));
 
         return $this->handleAjaxJsonResponse($response);

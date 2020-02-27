@@ -12,6 +12,9 @@ use Modules\Invoice\Services\InvoiceCreateService;
  * @package Modules\Invoice\Http\Controllers
  */
 class InvoicePostController extends Controller {
+    /**
+     * @var $invoiceCreateService
+     */
     private $invoiceCreateService;
 
     /**
@@ -27,7 +30,6 @@ class InvoicePostController extends Controller {
      * @return JsonResponse
      */
     public function __invoke(InvoicePostValidationRequest $request) : JsonResponse {
-        $data = $request->validated();
         $response = $this->invoiceCreateService->create($data);
         return $this->handleAjaxJsonResponse($response);
     }

@@ -12,6 +12,9 @@ use Modules\Invoice\Services\InvoiceGetService;
  * @package Modules\Invoice\Http\Controllers
  */
 class InvoiceGetController extends Controller {
+    /**
+     * @var $invoiceGetService
+     */
     private $invoiceGetService;
 
     /**

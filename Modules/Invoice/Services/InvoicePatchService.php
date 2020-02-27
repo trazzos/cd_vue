@@ -29,12 +29,7 @@ class InvoicePatchService {
      * @return false|true
      */
     public function update(array $data, $id) : ?bool {
-        $invoice = $this->invoiceRepo->update($data,$id,"id");
-
-        if(!$invoice) {
-            ThrowException::notFound();
-        }
-
+        $invoice = $this->invoiceRepo->update($data,$id);
         return $invoice;
     }
 }

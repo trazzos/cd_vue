@@ -12,6 +12,9 @@ use Modules\Company\Services\CompanyPatchService;
  * @package Modules\Company\Http\Controllers
  */
 class CompanyPatchController extends Controller {
+    /**
+     * @var $companyPatchService
+     */
     private $companyPatchService;
 
     /**
@@ -27,7 +30,7 @@ class CompanyPatchController extends Controller {
      * @return JsonResponse
      */
     public function __invoke(CompanyPatchValidationRequest $request) : JsonResponse {
-        $response = $this->companyPatchService->update($request->validated(),$request->get("id"));
+        $response = $this->companyPatchService->update($request->get("id"));
         return $this->handleAjaxJsonResponse($response);
     }
 }

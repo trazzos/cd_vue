@@ -28,6 +28,6 @@ class InvoiceDeleteService {
      * @return false|true
      */
     public function delete($id): ? bool {
-        return $this->invoiceRepo->deleteWhere("id","=",$id);
+        return $this->invoiceRepo->delete($id);
     }
 }

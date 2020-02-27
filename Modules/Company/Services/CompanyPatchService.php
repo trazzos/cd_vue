@@ -29,12 +29,7 @@ class CompanyPatchService {
      * @return false|true
      */
     public function update(array $data, $id) : ?bool {
-        $company = $this->companyRepo->update($data,$id,"id");
-
-        if(!$company) {
-            ThrowException::notFound();
-        }
-
+        $company = $this->companyRepo->update($data,$id);
         return $company;
     }
 }

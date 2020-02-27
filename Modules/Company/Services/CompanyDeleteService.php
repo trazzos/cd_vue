@@ -28,6 +28,6 @@ class CompanyDeleteService {
      * @return false|true
      */
     public function delete($id): ? bool {
-        return $this->companyRepo->deleteWhere("id","=",$id);
+        return $this->companyRepo->delete($id);
     }
 }

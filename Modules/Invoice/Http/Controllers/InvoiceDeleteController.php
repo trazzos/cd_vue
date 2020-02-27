@@ -12,6 +12,9 @@ use Modules\Invoice\Services\InvoiceDeleteService;
  * @package Modules\Invoice\Http\Controllers
  */
 class InvoiceDeleteController extends Controller {
+    /**
+     * @var $invoiceDeleteService
+     */
     private $invoiceDeleteService;
 
     /**
@@ -27,7 +30,6 @@ class InvoiceDeleteController extends Controller {
      * @return JsonResponse
      */
     public function __invoke(InvoiceDeleteValidationRequest $request) : JsonResponse {
-        $request->validated();
         $response = $this->invoiceDeleteService->delete($request->get("id"));
 
         return $this->handleAjaxJsonResponse($response);
