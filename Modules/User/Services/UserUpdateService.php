@@ -4,6 +4,7 @@ namespace Modules\User\Services;
 
 use Modules\User\Models\User;
 use Modules\User\Repositories\Interfaces\UserRepositoryInterface;
+use Hash;
 
 /**
  * Class UserUpdateService
@@ -28,7 +29,9 @@ class UserUpdateService {
      * @return User|null
      */
     public function update(array $data) : ?User {
-        $user = $this->userRepo->updateAndReturn($data, $data["id"]);
+        $data["password"] = Hash::make($data["password"]);
+        $this->userRepo->update($data, $data["id"]);
+        $user = $this->userRepo->findBy("id", $data["id"]); //$ids es un arreglo de ids $ids = [1, 2, 3, 4]
         return $user;        
     }
 }
