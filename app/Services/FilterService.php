@@ -3,8 +3,10 @@
 namespace App\Services;
 
 use App;
+use App\Repositories\Interfaces\RepositoryInterface;
 
-/**
+
+    /**
  * Class FilterService
  * @package App\Services
  */
@@ -15,16 +17,17 @@ class FilterService {
      * @param array $predicates
      * @return mixed
      */
-    public function apply($nameSpace, $repository, array $predicates) /*: ?Collection*/ {
+    public function apply(string $nameSpace, RepositoryInterface $repository, array $predicates) /*: ?Collection*/ {
         foreach($predicates as $predicate) {
-            $decorator = "\\". $nameSpace . '\\Filters\\' .
-                str_replace(' ', '', ucwords(
-                        str_replace('_', ' ', $predicate["name"])
-                    )
-                );
-
-            //We could do a class_exists but I want to make sure the class actually exists if we want to use the filter
-            $repository->pushCriteria(App::makeWith($decorator, ['predicate' => $predicate]));
+            $repository->pushCriteria(App::makeWith($this->getDecoratorName($nameSpace, $predicate), ['predicate' => $predicate]));
         }
+    }
+
+    private function getDecoratorName(string $nameSpace, array $predicate) {
+        return "\\". $nameSpace . '\\Filters\\' .
+            str_replace(' ', '', ucwords(
+                    str_replace('_', ' ', $predicate["name"])
+                )
+            );
     }
 }
