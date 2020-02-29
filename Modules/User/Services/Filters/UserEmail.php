@@ -24,14 +24,13 @@ class UserEmail extends FilterAbstract implements CriteriaInterface {
     public function  __construct(stdClass $predicate) {
         $this->predicate = $predicate;
     }
+
     /**
      * @param Model|Builder $model
-     *
      * @param RepositoryInterface $repository
      * @return mixed
      */
-    public function apply($model, RepositoryInterface $repository) {
-        $comparison = $this->predicate->comparison;
-        return $this->$comparison($model, $this->predicate);
+    public function apply($model, RepositoryInterface $repository) : Builder {
+        return $this->{$this->predicate->comparison}($model, $this->predicate);
     }
 }

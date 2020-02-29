@@ -27,6 +27,5 @@ class FilterService {
             //We could do a class_exists but I want to make sure the class actually exists if we want to use the filter
             $repository->pushCriteria(App::makeWith($decorator, ['predicate' => $predicate]));
         }
-        //print_r($repository->getCriteria());
     }
 }
