@@ -13,16 +13,16 @@ use Modules\User\Services\UserUpdateService;
  */
 class UserPatchController extends Controller {
     /**
-     * @var $userPatchController
+     * @var UserUpdateService
      */
-    private $userPatchController;
+    private $userUpdateService;
 
     /**
      * userPatchController constructor.
-     * @param UserUpdateService $userPatchController
+     * @param UserUpdateService $userUpdateService
      */
-    public function __construct(UserUpdateService $userPatchController) {
-        $this->userPatchController = $userPatchController;
+    public function __construct(UserUpdateService $userUpdateService) {
+        $this->userUpdateService = $userUpdateService;
     }
 
     /**
@@ -31,7 +31,8 @@ class UserPatchController extends Controller {
      */
     public function __invoke(UserPatchValidationRequest $request) : JsonResponse {
         $data = $request->validated();
-        $response = $this->userPatchController->update($data);
+
+        $response = $this->userUpdateService->update($data);
         return $this->handleAjaxJsonResponse($response);
     }
 }

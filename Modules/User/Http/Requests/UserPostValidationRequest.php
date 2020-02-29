@@ -3,6 +3,8 @@
 namespace Modules\User\Http\Requests;
 
 use App\Http\Requests\Request;
+use Gate;
+use Modules\User\Models\User;
 
 /**
  * Class UserPostValidationRequest
@@ -30,7 +32,4 @@ class UserPostValidationRequest extends Request {
             'role' => 'string|required',
         ];
     }
-    /*public function messages(){
-
-    }*/
 }

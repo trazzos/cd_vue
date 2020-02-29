@@ -140,31 +140,26 @@ abstract class BaseRepository implements RepositoryInterface
      * @return mixed
      */
     public function update(array $data, $id, $attribute = 'id') {
-        $model = $this->model->where($attribute, '=', $id);
-        $update = $model->update($data);
+        $model = $this->model->where($attribute, '=', $id)->first();
 
-        //$model = $this->model->where($attribute, '=', $id)->first();
-        //$this->updateSearchIndex($model);
-
-        return $update;
+        return $model
+            ? $model->update($data)
+            : false;
     }
 
     /**
-     * TODO: we need to address all three update methods and make sure they are being used appropriately. Some can be merged.
-     *
-     * @param Model $model
      * @param array $data
-     * @return Model|bool
+     * @param array $id
+     * @param string $attribute
+     * @return \App\Repositories\Interfaces\Model|bool|\Illuminate\Database\Eloquent\Builder
      */
-    public function updateAndReturn($model, array $data) {
+    public function updateAndReturn(array $data, $id, $attribute = 'id') {
+        $model = $this->model->where($attribute, '=', $id)->first();
         $model = $model->fill($data);
 
-        if($model->update()) {
-            //$this->updateSearchIndex($model);
-            return $model;
-        }
-
-        return false;
+        return $model->update()
+            ? $model
+            : null;
     }
 
     /**

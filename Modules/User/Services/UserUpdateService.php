@@ -28,7 +28,12 @@ class UserUpdateService {
      * @return User|null
      */
     public function update(array $data) : ?User {
-        $user = $this->userRepo->updateAndReturn($data, $data["id"]);
-        return $user;        
+        //Si el password que pusimos en el formulario esta vacio, NO queremos cambiar el password, lo tenemos que quitar
+        //de nuestro array de $data
+        if(!isset($data['password'])) {
+            unset($data['password']);
+        }
+
+        return $this->userRepo->updateAndReturn($data, $data["id"]);
     }
 }
