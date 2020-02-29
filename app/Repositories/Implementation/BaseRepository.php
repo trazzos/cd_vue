@@ -149,9 +149,9 @@ abstract class BaseRepository implements RepositoryInterface
 
     /**
      * @param array $data
-     * @param array $id
+     * @param $id
      * @param string $attribute
-     * @return \App\Repositories\Interfaces\Model|bool|\Illuminate\Database\Eloquent\Builder
+     * @return Model|null
      */
     public function updateAndReturn(array $data, $id, $attribute = 'id') {
         $model = $this->model->where($attribute, '=', $id)->first();
