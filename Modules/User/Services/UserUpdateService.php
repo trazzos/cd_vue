@@ -4,6 +4,7 @@ namespace Modules\User\Services;
 
 use Modules\User\Models\User;
 use Modules\User\Repositories\Interfaces\UserRepositoryInterface;
+use Hash;
 
 /**
  * Class UserUpdateService
@@ -32,6 +33,9 @@ class UserUpdateService {
         //de nuestro array de $data
         if(!isset($data['password'])) {
             unset($data['password']);
+        } else {
+            //De lo contrario es un password valido, lo tenemos que encriptar
+            $data['password'] = Hash::make($data['password']);
         }
 
         return $this->userRepo->updateAndReturn($data, $data["id"]);
