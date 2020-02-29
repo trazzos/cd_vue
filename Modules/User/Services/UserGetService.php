@@ -27,26 +27,26 @@ class UserGetService {
     }
 
     /**
-     * @param array $filters
+     * @param array $data
      * @return LengthAwarePaginator|null
      */
-    public function list(array $filters) : ?LengthAwarePaginator {
+    public function list(array $data) : ?LengthAwarePaginator {
         //Por favor para sus tareas borren estos comentarios, solo son de ejemplo
         //Para aplicar filtros, hay que llamar a esta funcion, por ejemplo para company seria $this->companyRepo
         //Lo demas quedaria igual
-        if(isset($filters['predicates'])) {
-            Filter::apply(__NAMESPACE__, $this->userRepo, $filters['predicates']);
+        if(isset($data['predicates'])) {
+            Filter::apply(__NAMESPACE__, $this->userRepo, $data['predicates']);
         }
 
-        if(isset($filters['sorts'])) {
-            Sort::apply(__NAMESPACE__, $this->userRepo, $filters['sorts']);
+        if(isset($data['sorts'])) {
+            Sort::apply(__NAMESPACE__, $this->userRepo, $data['sorts']);
         }
 
         //Notese como no se necesita pasar el parametro de "page" aqui. Ya laravel lo toma en cuenta internamente
         //por ejemplo
         //http://obras.test/api/user?page=1
         //http://obras.test/api/user?page=3
-        $users = $this->userRepo->paginate($filters['per_page']);
+        $users = $this->userRepo->paginate($data['per_page']);
         $this->userRepo->resetRepository(); //Limpiar los criterios SIEMPRE
 
         if(!$users) {
