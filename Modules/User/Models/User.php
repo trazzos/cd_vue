@@ -11,6 +11,12 @@ class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
+    const ROLES = [
+        'admin' => 'admin',
+        'manager' => 'manager',
+        'user' => 'user',
+    ];
+
     const ROLE_ADMIN = 'admin';
     const ROLE_MANAGER = 'manager';
     const ROLE_USER = 'user';
