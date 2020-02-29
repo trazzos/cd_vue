@@ -25,10 +25,22 @@ class UserUpdateService {
     }
 
     /**
+     * @param User $user
      * @param array $data
      * @return User|null
      */
-    public function update(array $data) : ?User {
+    public function update(User $user, array $data) : ?User {
+        $data = $this->normalizeData($user, $data);
+
+        return $this->userRepo->updateAndReturn($data, $data["id"]);
+    }
+
+    /**
+     * @param User $user
+     * @param array $data
+     * @return array
+     */
+    private function normalizeData(User $user, array $data) {
         //Si el password que pusimos en el formulario esta vacio, NO queremos cambiar el password, lo tenemos que quitar
         //de nuestro array de $data
         if(!isset($data['password'])) {
@@ -38,6 +50,10 @@ class UserUpdateService {
             $data['password'] = Hash::make($data['password']);
         }
 
-        return $this->userRepo->updateAndReturn($data, $data["id"]);
+        //TODO aqui tambien podriamos agregar el user_id para saber quien fue el usuario que agrego a este nuevo usuario por ejemplo
+        //Obvio ahorita no tenemos el campo en la tabla user. Se los dejo de tarea
+        //$data['user_id'] = $user['id'];
+
+        return $data;
     }
 }

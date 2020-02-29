@@ -29,12 +29,13 @@ class User extends Authenticatable implements JWTSubject
     protected $table = 'user';
 
     /**
-     * The attributes that are mass assignable.
+     * The attributes that are protected.
      *
      * @var array
+     * No queremos que el campo id pueda ser cambiado por lo que lo agregamos al arreglo de guarded
      */
-    protected $fillable = [
-        'name', 'email', 'password',
+    protected $guarded = [
+        'id'
     ];
 
     /**
