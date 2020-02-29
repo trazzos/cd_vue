@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use stdClass;
 use App;
 
 /**
@@ -13,14 +12,14 @@ class FilterService {
     /**
      * @param $nameSpace
      * @param $repository
-     * @param stdClass $filters
+     * @param array $predicates
      * @return mixed
      */
-    public function apply($nameSpace, $repository, stdClass $filters) /*: ?Collection*/ {
-        foreach($filters->predicates as $predicate) {
+    public function apply($nameSpace, $repository, array $predicates) /*: ?Collection*/ {
+        foreach($predicates as $predicate) {
             $decorator = "\\". $nameSpace . '\\Filters\\' .
                 str_replace(' ', '', ucwords(
-                        str_replace('_', ' ', $predicate->name)
+                        str_replace('_', ' ', $predicate["name"])
                     )
                 );
 

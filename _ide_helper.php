@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 6.5.2 on 2020-02-29 18:46:51.
+ * Generated for Laravel 6.5.2 on 2020-02-29 20:09:31.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -14784,12 +14784,39 @@ namespace App\Facades {
         /**
          * 
          *
+         * @param $nameSpace
+         * @param $repository
+         * @param array $predicates
+         * @return mixed 
          * @static 
          */ 
-        public static function apply($nameSpace, $repository, $filters)
+        public static function apply($nameSpace, $repository, $predicates)
         {
                         /** @var \App\Services\FilterService $instance */
-                        return $instance->apply($nameSpace, $repository, $filters);
+                        return $instance->apply($nameSpace, $repository, $predicates);
+        }
+         
+    }
+
+    /**
+     * 
+     *
+     */ 
+    class Sort {
+        
+        /**
+         * 
+         *
+         * @param $nameSpace
+         * @param $repository
+         * @param array $sorts
+         * @return mixed 
+         * @static 
+         */ 
+        public static function apply($nameSpace, $repository, $sorts)
+        {
+                        /** @var \App\Services\SortService $instance */
+                        return $instance->apply($nameSpace, $repository, $sorts);
         }
          
     }
@@ -19083,6 +19110,8 @@ namespace  {
     class ThrowException extends \App\Facades\ThrowException {}
 
     class Filter extends \App\Facades\Filter {}
+
+    class Sort extends \App\Facades\Sort {}
 
     class JWTAuth extends \Tymon\JWTAuth\Facades\JWTAuth {}
 

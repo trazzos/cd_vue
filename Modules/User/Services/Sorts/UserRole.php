@@ -1,27 +1,27 @@
 <?php
-namespace Modules\User\Services\Filters;
+namespace Modules\User\Services\Sorts;
 
-use App\Abstracts\FilterAbstract;
+use App\Abstracts\SortAbstract;
 use App\Repositories\Interfaces\CriteriaInterface;
 use App\Repositories\Interfaces\RepositoryInterface;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class UserName
- * @package Modules\User\Services\Filters
+ * Class UserRole
+ * @package Modules\User\Services\Sorts
  */
-class UserName extends FilterAbstract implements CriteriaInterface {
+class UserRole extends SortAbstract implements CriteriaInterface {
     /**
      * @var array
      */
-    protected $predicate;
+    protected $sort;
 
     /**
-     * @param array $predicate
+     * @param array $sort
      */
-    public function  __construct(array $predicate) {
-        $this->predicate = $predicate;
+    public function  __construct(array $sort) {
+        $this->sort = $sort;
     }
     /**
      * @param Model|Builder $model
@@ -30,6 +30,6 @@ class UserName extends FilterAbstract implements CriteriaInterface {
      * @return mixed
      */
     public function apply($model, RepositoryInterface $repository) : Builder {
-        return $this->{$this->predicate['comparison']}($model, $this->predicate);
+        return $this->{$this->sort['direction']}($model, $this->sort);
     }
 }

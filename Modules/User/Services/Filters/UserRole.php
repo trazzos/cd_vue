@@ -6,7 +6,6 @@ use App\Repositories\Interfaces\CriteriaInterface;
 use App\Repositories\Interfaces\RepositoryInterface;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use stdClass;
 
 /**
  * Class UserRole
@@ -14,14 +13,14 @@ use stdClass;
  */
 class UserRole extends FilterAbstract implements CriteriaInterface {
     /**
-     * @var stdClass
+     * @var array
      */
     protected $predicate;
 
     /**
-     * @param stdClass $predicate
+     * @param array $predicate
      */
-    public function  __construct(stdClass $predicate) {
+    public function  __construct(array $predicate) {
         $this->predicate = $predicate;
     }
     /**
@@ -31,6 +30,6 @@ class UserRole extends FilterAbstract implements CriteriaInterface {
      * @return mixed
      */
     public function apply($model, RepositoryInterface $repository) : Builder {
-        return $this->{$this->predicate->comparison}($model, $this->predicate);
+        return $this->{$this->predicate['comparison']}($model, $this->predicate);
     }
 }
