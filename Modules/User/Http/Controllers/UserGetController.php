@@ -31,7 +31,6 @@ class UserGetController extends Controller {
      */
     public function __invoke(UserGetValidationRequest $request) : JsonResponse {
         $filters = $request->validated();
-
         $response = $this->userGetService->list($filters);
 
         return $this->handleAjaxJsonResponse($response);
