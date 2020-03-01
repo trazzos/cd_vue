@@ -1,4 +1,6 @@
 {
     "Company": true,
-    "User": true
+    "User": true,
+    "Stage": true,
+    "Task": true
 }
