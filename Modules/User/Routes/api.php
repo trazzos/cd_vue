@@ -12,12 +12,8 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-//TODO move it back to auth.
-Route::group(['prefix' => 'user'], function() {
-    Route::get('', 'UserGetController')->name('userGet');
-});
-
 Route::group(['prefix' => 'user', "middleware" => 'jwt.auth'], function() {
+    Route::get('', 'UserGetController')->name('userGet');
     Route::post('', 'UserPostController')->name('userPost');
     Route::patch('', 'UserPatchController')->name('userPatch');
     Route::delete('', 'UserDeleteController')->name('userDelete');

@@ -6,6 +6,7 @@ use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Modules\User\Http\Requests\UserPatchValidationRequest;
 use Modules\User\Services\UserUpdateService;
+use Auth;
 
 /**
  * Class UserPatchController
@@ -13,16 +14,16 @@ use Modules\User\Services\UserUpdateService;
  */
 class UserPatchController extends Controller {
     /**
-     * @var $userPatchController
+     * @var UserUpdateService
      */
-    private $userPatchController;
+    private $userUpdateService;
 
     /**
      * userPatchController constructor.
-     * @param UserUpdateService $userPatchController
+     * @param UserUpdateService $userUpdateService
      */
-    public function __construct(UserUpdateService $userPatchController) {
-        $this->userPatchController = $userPatchController;
+    public function __construct(UserUpdateService $userUpdateService) {
+        $this->userUpdateService = $userUpdateService;
     }
 
     /**
@@ -31,7 +32,9 @@ class UserPatchController extends Controller {
      */
     public function __invoke(UserPatchValidationRequest $request) : JsonResponse {
         $data = $request->validated();
-        $response = $this->userPatchController->update($data);
+
+        //Sabemos que el usuario esta logeado, pueden pasar ese usuario al servicio.
+        $response = $this->userUpdateService->update(Auth::user(), $data);
         return $this->handleAjaxJsonResponse($response);
     }
 }
