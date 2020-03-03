@@ -30,7 +30,7 @@ class CompanyPatchController extends Controller {
      * @return JsonResponse
      */
     public function __invoke(CompanyPatchValidationRequest $request) : JsonResponse {
-        $response = $this->companyPatchService->update($request->get("id"));
+        $response = $this->companyPatchService->update($request->validated(),$request->get("id"));
         return $this->handleAjaxJsonResponse($response);
     }
 }

@@ -28,7 +28,10 @@ class InvoicePatchValidationRequest extends Request {
             'company_id' => 'integer|required',
             'name' => 'string|required',
             'start' => 'integer|required',
-            'end' => 'integer|required'
+            'end' => 'integer|required',
+            'file_name_header' => 'string',
+            'file_name_footer' => 'string',
+            'file_name_watermark' => 'string'            
         ];
     }
 }

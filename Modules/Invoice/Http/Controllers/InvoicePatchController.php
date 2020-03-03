@@ -29,8 +29,8 @@ class InvoicePatchController extends Controller {
      * @param InvoicePatchValidationRequest $request
      * @return JsonResponse
      */
-    public function __invoke(InvoicePatchValidationRequest $request) : JsonResponse {
-        $response = $this->invoicePatchService->update($request->get("id"));
+    public function __invoke(InvoicePatchValidationRequest $request) : JsonResponse {        
+        $response = $this->invoicePatchService->update($request->validated(),$request->get("id"));
         return $this->handleAjaxJsonResponse($response);
     }
 }

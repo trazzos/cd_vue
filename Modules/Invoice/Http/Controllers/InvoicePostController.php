@@ -30,6 +30,7 @@ class InvoicePostController extends Controller {
      * @return JsonResponse
      */
     public function __invoke(InvoicePostValidationRequest $request) : JsonResponse {
+        $data = $request->validated();
         $response = $this->invoiceCreateService->create($data);
         return $this->handleAjaxJsonResponse($response);
     }
