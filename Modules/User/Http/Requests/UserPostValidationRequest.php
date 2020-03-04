@@ -27,10 +27,6 @@ class UserPostValidationRequest extends Request {
             'name' => 'string|required',
             'email' => 'string|required',
             'password' => 'string|required',
-            //'role' => 'string|required',
         ];
     }
-    /*public function messages(){
-
-    }*/
 }

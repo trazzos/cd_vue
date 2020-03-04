@@ -27,8 +27,7 @@ class UserPatchValidationRequest extends Request {
             'id' => 'integer|required',
             'name' => 'string|required',
             'email' => 'string|required',
-            'password' => 'string|required',
-            //'role' => 'string|required',
+            'password' => 'string',
         ];
     }
 }

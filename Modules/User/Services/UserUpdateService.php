@@ -29,9 +29,12 @@ class UserUpdateService {
      * @return User|null
      */
     public function update(array $data) : ?User {
-        $data["password"] = Hash::make($data["password"]);
-        $this->userRepo->update($data, $data["id"]);
-        $user = $this->userRepo->findBy("id", $data["id"]); //$ids es un arreglo de ids $ids = [1, 2, 3, 4]
+        if(isset($data["password"]) && $data["password"] != ""){
+            $data["password"] = Hash::make($data["password"]);
+        }else{
+            unset($data["password"]);
+        }        
+        $user = $this->userRepo->updateAndReturn($this->userRepo->findBy("id", $data["id"]), $data);
         return $user;        
     }
 }
