@@ -26,9 +26,9 @@ class CreateCompanyTable extends Migration
             $table->string('exterior_number')->nullable();
             $table->string('interior_number')->nullable();
             $table->string('suburb')->nullable();
-            $table->integer('location_id');
-            $table->integer('municipio_id');
-            $table->integer('state_id');
+            $table->string('location_id');
+            $table->string('municipio_id');
+            $table->string('state_id');
             $table->integer('country_id')->default(1);
             $table->softDeletes();
             $table->timestamps();
