@@ -28,7 +28,7 @@ class UserPostValidationRequest extends Request {
         return [
             'name' => 'string|required',
             'email' => 'string|required',
-            'password' => 'string|required',
+            'password' => 'string|min:6|required',
         ];
     }
 }
