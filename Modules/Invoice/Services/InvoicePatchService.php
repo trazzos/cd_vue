@@ -28,8 +28,8 @@ class InvoicePatchService {
      * @param $id register identifier that will be updated
      * @return false|true
      */
-    public function update(array $data, $id) : ?bool {
-        $invoice = $this->invoiceRepo->update($data,$id);
+    public function update(array $data, $id) : ?Invoice {
+        $invoice = $this->invoiceRepo->updateAndReturn($data,$id);
         return $invoice;
     }
 }

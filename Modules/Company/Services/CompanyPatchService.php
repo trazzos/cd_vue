@@ -28,8 +28,8 @@ class CompanyPatchService {
      * @param $id register identifier that will be updated
      * @return false|true
      */
-    public function update(array $data, $id) : ?bool {
-        $company = $this->companyRepo->update($data,$id);
+    public function update(array $data, $id) : ?Company {
+        $company = $this->companyRepo->updateAndReturn($data,$id);
         return $company;
     }
 }

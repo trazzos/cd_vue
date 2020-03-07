@@ -31,6 +31,6 @@ class CompanyPatchController extends Controller {
      */
     public function __invoke(CompanyPatchValidationRequest $request) : JsonResponse {
         $response = $this->companyPatchService->update($request->validated(),$request->get("id"));
-        return $this->handleAjaxJsonResponse($response);
+        return $this->handleAjaxJsonResponse($response, 'Empresa actualizada con exito.');
     }
 }

@@ -30,8 +30,8 @@ class CompanyGetController extends Controller {
      * @return JsonResponse
      */
     public function __invoke(CompanyGetValidationRequest $request) : JsonResponse {
-        $id = $request->get('id');
-        $response = $this->companyGetService->list(); //TODO temporary
+        $filters = $request->validated();
+        $response = $this->companyGetService->list($filters); //TODO temporary
         return $this->handleAjaxJsonResponse($response);
     }
 }

@@ -31,6 +31,6 @@ class InvoicePatchController extends Controller {
      */
     public function __invoke(InvoicePatchValidationRequest $request) : JsonResponse {        
         $response = $this->invoicePatchService->update($request->validated(),$request->get("id"));
-        return $this->handleAjaxJsonResponse($response);
+        return $this->handleAjaxJsonResponse($response, 'Folio actualizado con exito.');
     }
 }
