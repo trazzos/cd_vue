@@ -5,6 +5,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker;
 use Hash;
+use Modules\User\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,10 +16,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run() {
         $faker = Faker\Factory::create();
-        DB::table('users')->insert([
+        DB::table('user')->insert([
             'name' => $faker->name,
             'email' => $faker->email,
             'password' => Hash::make('password'),
+            'role' => User::ROLE_ADMIN,
         ]);
     }
 }

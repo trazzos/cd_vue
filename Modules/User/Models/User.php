@@ -11,13 +11,31 @@ class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
+    const ROLES = [
+        'admin' => 'admin',
+        'manager' => 'manager',
+        'user' => 'user',
+    ];
+
+    const ROLE_ADMIN = 'admin';
+    const ROLE_MANAGER = 'manager';
+    const ROLE_USER = 'user';
+
     /**
-     * The attributes that are mass assignable.
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'user';
+
+    /**
+     * The attributes that are protected.
      *
      * @var array
+     * No queremos que el campo id pueda ser cambiado por lo que lo agregamos al arreglo de guarded
      */
-    protected $fillable = [
-        'name', 'email', 'password',
+    protected $guarded = [
+        'id'
     ];
 
     /**

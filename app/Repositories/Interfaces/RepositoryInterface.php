@@ -56,11 +56,12 @@ interface RepositoryInterface extends RepositoryCriteriaInterface {
     public function update(array $data, $id, $attribute = 'id');
 
     /**
-     * @param Model $model
      * @param array $data
-     * @return Model|bool
+     * @param $id
+     * @param string $attribute
+     * @return mixed
      */
-    public function updateAndReturn($model, array $data);
+    public function updateAndReturn(array $data, $id, $attribute = 'id');
 
     /**
      * @param array $data
