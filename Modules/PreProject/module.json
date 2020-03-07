@@ -1,0 +1,14 @@
+{
+    "name": "PreProject",
+    "alias": "preproject",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\PreProject\\Providers\\PreProjectServiceProvider",
+        "Modules\\PreProject\\Providers\\RepositoryServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
