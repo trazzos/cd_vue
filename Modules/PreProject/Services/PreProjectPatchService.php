@@ -27,8 +27,8 @@ class PreProjectPatchService {
      * @param array $data
      * @return PreProject|null
      */
-    public function update(array $data, $id) : ?bool {
-        $preproject = $this->preprojectRepo->update($data,$id);
+    public function update(array $data, $id) : ?PreProject {
+        $preproject = $this->preprojectRepo->updateAndReturn($data,$id);
         return $preproject;
     }
 }

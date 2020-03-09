@@ -30,7 +30,8 @@ class PreProjectGetController extends Controller {
      * @return JsonResponse
      */
     public function __invoke(PreProjectGetValidationRequest $request) : JsonResponse {
-        $response = $this->preprojectGetService->list(); //TODO temporary
+        $filters = $request->validated();
+        $response = $this->preprojectGetService->list($filters); //TODO temporary
         return $this->handleAjaxJsonResponse($response);
     }
 }

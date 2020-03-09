@@ -13,8 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-/* Route::group(['prefix' => 'preproject', 'middleware' => 'jwt.auth'], function() { */
-Route::group(['prefix' => 'preproject'], function() {
+Route::group(['prefix' => 'preproject', 'middleware' => 'jwt.auth'], function() {
     Route::get('', 'PreProjectGetController')->name('preprojectGet');
     Route::post('', 'PreProjectPostController')->name('preprojectPost');
     Route::patch('', 'PreProjectPatchController')->name('preprojectPatch');

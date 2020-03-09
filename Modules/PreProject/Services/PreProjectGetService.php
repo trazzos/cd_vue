@@ -2,10 +2,12 @@
 
 namespace Modules\PreProject\Services;
 
-use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Modules\PreProject\Models\PreProject;
 use Modules\PreProject\Repositories\Interfaces\PreProjectRepositoryInterface;
 use ThrowException;
+use Filter;
+use Sort;
 
 /**
  * Class PreProjectGetService
@@ -41,13 +43,25 @@ class PreProjectGetService {
     }
 
     /**
-     * @param $id
-     * @return PreProject|null
-     * At this point everything is validated, we shouldn't check anything else
-     * TODO this is just a test  function to show backend and frontend connection
+     * @param array $data
+     * @return LengthAwarePaginator|null
      */
-    public function list() : ?Collection {
-        $preprojects= $this->preprojectRepo->all();
+    public function list(array $data) : ?LengthAwarePaginator {
+        if(isset($data['predicates'])) {
+            Filter::apply(__NAMESPACE__, $this->preprojectRepo, $data['predicates']);
+        }
+
+        if(isset($data['sorts'])) {
+            Sort::apply(__NAMESPACE__, $this->preprojectRepo, $data['sorts']);
+        }
+
+        $preprojects = $this->preprojectRepo->paginate($data['per_page']);
+        $this->preprojectRepo->resetRepository();
+
+        if(!$preprojects) {
+            ThrowException::notFound();
+        }
+
         return $preprojects;
     }
 }
