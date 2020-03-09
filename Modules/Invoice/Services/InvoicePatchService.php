@@ -26,7 +26,7 @@ class InvoicePatchService {
     /**
      * @param $data information to update
      * @param $id register identifier that will be updated
-     * @return false|true
+     * @return Invoice
      */
     public function update(array $data, $id) : ?Invoice {
         $invoice = $this->invoiceRepo->updateAndReturn($data,$id);

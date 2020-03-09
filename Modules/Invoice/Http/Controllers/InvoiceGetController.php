@@ -30,8 +30,8 @@ class InvoiceGetController extends Controller {
      * @return JsonResponse
      */
     public function __invoke(InvoiceGetValidationRequest $request) : JsonResponse {
-        $id = $request->get('id');
-        $response = $this->invoiceGetService->list(); //TODO temporary
+        $filters = $request->validated();
+        $response = $this->invoiceGetService->list($filters); //TODO temporary
         return $this->handleAjaxJsonResponse($response);
     }
 }

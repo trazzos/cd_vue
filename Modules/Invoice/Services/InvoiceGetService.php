@@ -2,10 +2,12 @@
 
 namespace Modules\Invoice\Services;
 
-use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Modules\Invoice\Models\Invoice;
 use Modules\Invoice\Repositories\Interfaces\InvoiceRepositoryInterface;
 use ThrowException;
+use Filter;
+use Sort;
 
 /**
  * Class InvoiceGetService
@@ -41,13 +43,22 @@ class InvoiceGetService {
     }
 
     /**
-     * @param $id
-     * @return Invoice|null
-     * At this point everything is validated, we shouldn't check anything else
-     * TODO this is just a test  function to show backend and frontend connection
+     * @param array $data
+     * @return LengthAwarePaginator|null
      */
-    public function list() : ?Collection {
-        $companies= $this->invoiceRepo->all();
-        return $companies;
+    public function list(array $data) : ?LengthAwarePaginator {
+        if(isset($data['predicates'])) {
+            Filter::apply(__NAMESPACE__, $this->invoiceRepo, $data['predicates']);
+        }
+
+        if(isset($data['sorts'])) {
+            Sort::apply(__NAMESPACE__, $this->invoiceRepo, $data['sorts']);
+        }
+
+        $invoices = $this->invoiceRepo->paginate($data['per_page']);
+        $this->invoiceRepo->resetRepository(); 
+
+        return $invoices;
     }
+
 }
