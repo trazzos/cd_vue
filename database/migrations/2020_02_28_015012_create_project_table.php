@@ -29,12 +29,12 @@ class CreateProjectTable extends Migration
             $table->integer('benefited_inhabitants');
             $table->string('goals');
             $table->string('unit_of_measurement');
-            $table->decimal('federal_resource');
-            $table->decimal('state_resource');
-            $table->decimal('municipal_resource');
-            $table->decimal('other_resources');
-            $table->decimal('beneficiary_contribution');
-            $table->decimal('total_budgeted_amount');
+            $table->integer('federal_resource');
+            $table->integer('state_resource');
+            $table->integer('municipal_resource');
+            $table->integer('other_resources');
+            $table->integer('beneficiary_contribution');
+            $table->integer('total_budgeted_amount');
             $table->string('macro_location');
             $table->string('micro_location');
             $table->string('location');
