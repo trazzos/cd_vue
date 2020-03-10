@@ -52,7 +52,7 @@ class UserUpdateService {
 
         //TODO aqui tambien podriamos agregar el user_id para saber quien fue el usuario que agrego a este nuevo usuario por ejemplo
         //Obvio ahorita no tenemos el campo en la tabla user. Se los dejo de tarea
-        //$data['user_id'] = $user['id'];
+        $data['user_id'] = $user['id'];
 
         return $data;
     }
