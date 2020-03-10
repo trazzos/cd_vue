@@ -12,6 +12,9 @@ use Modules\Company\Services\CompanyCreateService;
  * @package Modules\Company\Http\Controllers
  */
 class CompanyPostController extends Controller {
+    /**
+     * @var $companyCreateService
+     */
     private $companyCreateService;
 
     /**
