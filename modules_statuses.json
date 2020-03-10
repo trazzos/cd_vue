@@ -1,5 +1,8 @@
 {
     "Company": true,
     "User": true,
-    "Invoice": true
+    "Invoice": true,
+    "Project": true,
+    "Stage": true,
+    "Task": true
 }

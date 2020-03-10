@@ -4,6 +4,7 @@ namespace Modules\User\Services;
 
 use Modules\User\Models\User;
 use Modules\User\Repositories\Interfaces\UserRepositoryInterface;
+use Hash;
 
 /**
  * Class UserCreateService
@@ -28,6 +29,7 @@ class UserCreateService {
      * @return User|null
      */
     public function create(array $data) : ?User {
+        $data["password"] = Hash::make($data["password"]);
         return $this->userRepo->create($data);
     }
 }
