@@ -13,9 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['prefix' => 'company', 'middleware' => 'jwt.auth'], function() {
-    Route::get('', 'CompanyGetController')->name('companyGet');
-    Route::post('', 'CompanyPostController')->name('companyPost');
-    Route::patch('', 'CompanyPatchController')->name('companyPatch');
-    Route::delete('', 'CompanyDeleteController')->name('companyDelete');
-});
+Route::group(['prefix' => 'invoice', 'middleware' => 'jwt.auth'], function() {
+        Route::get('', 'InvoiceGetController')->name('invoiceGet');
+        Route::post('', 'InvoicePostController')->name('invoicePost');
+        Route::patch('', 'InvoicePatchController')->name('invoicePatch');
+        Route::delete('', 'InvoiceDeleteController')->name('invoiceDelete');
+    });
