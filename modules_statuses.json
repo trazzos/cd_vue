@@ -2,6 +2,5 @@
     "Company": true,
     "User": true,
     "Stage": true,
-    "Task": true,
-    "Tender": true
+    "Task": true
 }
