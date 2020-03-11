@@ -12,6 +12,9 @@ use Modules\Company\Services\CompanyGetService;
  * @package Modules\Company\Http\Controllers
  */
 class CompanyGetController extends Controller {
+    /**
+     * @var $companyGetService
+     */
     private $companyGetService;
 
     /**
@@ -27,9 +30,8 @@ class CompanyGetController extends Controller {
      * @return JsonResponse
      */
     public function __invoke(CompanyGetValidationRequest $request) : JsonResponse {
-        $uuid = $request->get('uuid');
-        //$response = $this->companyGetService->info($uuid); //TODO pass real id
-        $response = $this->companyGetService->list(); //TODO temporary
+        $filters = $request->validated();
+        $response = $this->companyGetService->list($filters); //TODO temporary
         return $this->handleAjaxJsonResponse($response);
     }
 }

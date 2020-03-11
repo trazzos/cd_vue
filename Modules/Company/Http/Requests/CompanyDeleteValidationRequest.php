@@ -1,16 +1,14 @@
 <?php
 
-namespace Modules\User\Http\Requests;
+namespace Modules\Company\Http\Requests;
 
 use App\Http\Requests\Request;
-use Gate;
-use Modules\User\Models\User;
 
 /**
- * Class UserPostValidationRequest
- * @package Modules\User\Http\Requests
+ * Class CompanyDeleteValidationRequest
+ * @package Modules\Company\Http\Requests
  */
-class UserPostValidationRequest extends Request {
+class CompanyDeleteValidationRequest extends Request {
     /**
      * Determine if the user is authorized to make this request.
      * @return bool
@@ -26,9 +24,7 @@ class UserPostValidationRequest extends Request {
      */
     public function rules() {
         return [
-            'name' => 'string|required',
-            'email' => 'string|required',
-            'password' => 'string|min:6|required',
+            'id' => 'integer|required',
         ];
     }
 }
