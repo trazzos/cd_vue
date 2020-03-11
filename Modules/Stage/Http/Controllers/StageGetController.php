@@ -28,7 +28,8 @@ class StageGetController extends Controller{
      * @return JsonResponse
      */
     public function __invoke(StageGetValidationRequest $request) : JsonResponse {
-        $response = $this->stageGetService->list();
+        $filters =  $request->validated();
+        $response = $this->stageGetService->list($filters);
         return $this->handleAjaxJsonResponse($response);
     }
 }

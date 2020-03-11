@@ -2,10 +2,11 @@
 
 namespace Modules\Stage\Services;
 
-use Illuminate\Support\Collection;
-use Modules\Stage\Models\Stage;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Modules\Stage\Repositories\Interfaces\StageRepositoryInterface;
 use ThrowException;
+use Filter;
+use Sort;
 
 /**
  * Class StageGetService
@@ -24,32 +25,22 @@ class StageGetService {
     public function __construct(StageRepositoryInterface $stageRepo) {
         $this->stageRepo = $stageRepo;
     }
-
     /**
-     * @param $id
-     * @return Stage|null
-    * At this point everything is validated, we shouldn't check anything else
+     * @param array $data
+     * @return LengthAwarePaginator|null
      */
-    public function info($id) : ?Stage {
-        $stage = $this->stageRepo->findBy('id', $id);
-        $stage->load('task');
-
-        if(!$stage) {
-            ThrowException::notFound();
+    public function list(array $data) : ?LengthAwarePaginator {
+        if(isset($data['predicates'])) {
+            Filter::apply(__NAMESPACE__, $this->stageRepo, $data['predicates']);
         }
 
-        return $stage;
-    }
-
-    /**
-     * @param $id
-     * @return Stage|null
-     * At this point everything is validated, we shouldn't check anything else
-     * TODO this is just a test  function to show backend and frontend connection
-     */
-    public function list() : ?Collection {
-        $stages= $this->stageRepo->all();
+        if(isset($data['sorts'])) {
+            Sort::apply(__NAMESPACE__, $this->stageRepo, $data['sorts']);
+        }
+        $stages = $this->stageRepo->paginate($data['per_page']);
         $stages->load('task');
+        $this->stageRepo->resetRepository();
+
         if(!$stages) {
             ThrowException::notFound();
         }

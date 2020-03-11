@@ -2,10 +2,11 @@
 
 namespace Modules\Task\Services;
 
-use Illuminate\Support\Collection;
-use Modules\Task\Models\Task;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Modules\Task\Repositories\Interfaces\TaskRepositoryInterface;
 use ThrowException;
+use Filter;
+use Sort;
 
 /**
  * Class TaskGetService
@@ -26,28 +27,21 @@ class TaskGetService {
     }
 
     /**
-     * @param $id
-     * @return Task|null
-    * At this point everything is validated, we shouldn't check anything else
+     * @param array $data
+     * @return LengthAwarePaginator|null
      */
-    public function info($id) : ?Task {
-        $task = $this->taskRepo->findBy('id', $id);
-
-        if(!$task) {
-            ThrowException::notFound();
+    public function list(array $data) : ?LengthAwarePaginator {
+        if(isset($data['predicates'])) {
+            Filter::apply(__NAMESPACE__, $this->taskRepo, $data['predicates']);
         }
 
-        return $task;
-    }
+        if(isset($data['sorts'])) {
+            Sort::apply(__NAMESPACE__, $this->taskRepo, $data['sorts']);
+        }
+        $tasks = $this->taskRepo->paginate($data['per_page']);
+        $tasks->load('task');
+        $this->taskRepo->resetRepository();
 
-    /**
-     * @param $id
-     * @return Task|null
-     * At this point everything is validated, we shouldn't check anything else
-     * TODO this is just a test  function to show backend and frontend connection
-     */
-    public function list() : ?Collection {
-        $tasks= $this->taskRepo->all();
         if(!$tasks) {
             ThrowException::notFound();
         }

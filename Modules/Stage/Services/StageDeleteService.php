@@ -27,6 +27,6 @@ class StageDeleteService {
      * @return false|true
      */
     public function delete($id): ? bool {
-        return $this->stageRepo->deleteWhere("id","=",$id);
+        return $this->stageRepo->delete($id);
     }
 }

@@ -3,6 +3,8 @@
 namespace Modules\Stage\Services;
 
 use Modules\Stage\Repositories\Interfaces\StageRepositoryInterface;
+use Modules\Stage\Models\Stage;
+use Modules\User\Models\User;
 use ThrowException;
 
 /**
@@ -22,19 +24,22 @@ class StagePatchService {
     public function __construct(StageRepositoryInterface $stageRepo) {
         $this->stageRepo = $stageRepo;
     }
+    /**
+     * @param User $user
+     * @param array $data
+     * @return Stage|null
+     */
+    public function update(User $user, array $data) : ?Stage {
+        $data = $this->normalizeData($user, $data);
+        return $this->stageRepo->updateAndReturn($data, $data["id"]);
+    }
 
     /**
-     * @param $data source to update
-     * @param $id register identifier that will be updated
-     * @return false|true
+     * @param User $user
+     * @param array $data
+     * @return array
      */
-    public function update(array $data, $id): ? bool{
-        $stage = $this->stageRepo->update($data,$id,"id");
-
-        if(!$stage) {
-            ThrowException::notFound();
-        }
-
-        return $stage;
+    private function normalizeData(User $user, array $data) {
+        return $data;
     }
 }

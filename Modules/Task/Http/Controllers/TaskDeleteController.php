@@ -31,7 +31,7 @@ class TaskDeleteController extends Controller{
      */
     public function __invoke(TaskDeleteValidationRequest $request) : JsonResponse {
         $response = $this->taskDeleteService->delete($request->get('id'));
-        return $this->handleAjaxJsonResponse($response);
+        return $this->handleAjaxJsonResponse($response,"Tarea eliminada");
 
     }
 }

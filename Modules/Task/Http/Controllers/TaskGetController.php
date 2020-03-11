@@ -28,7 +28,8 @@ class TaskGetController extends Controller{
      * @return JsonResponse
      */
     public function __invoke(TaskGetValidationRequest $request) : JsonResponse {
-        $response = $this->taskGetService->list();
+        $filters = $request->validated();
+        $response = $this->taskGetService->list($filters);
         return $this->handleAjaxJsonResponse($response);
     }
 }

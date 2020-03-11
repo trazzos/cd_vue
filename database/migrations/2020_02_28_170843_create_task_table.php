@@ -17,7 +17,7 @@ class CreateTaskTable extends Migration
             $table->bigIncrements('id');
             $table->string('name',255)->nullable();
             $table->bigInteger('stage_id')->unsigned()->nullable();
-            $table->foreign('stage_id')->references('id')->on('stage');
+            $table->foreign('stage_id')->references('id')->on('stage')->onDelete('cascade');
             $table->binary('comment')->nullable();
             $table->binary('legal_basis')->nullable();
             $table->boolean('create_pdf')->default(false);
