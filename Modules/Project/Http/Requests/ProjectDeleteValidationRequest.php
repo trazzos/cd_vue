@@ -27,7 +27,4 @@ class ProjectDeleteValidationRequest extends Request {
             'id' => 'integer|required'
         ];
     }
-    /*public function messages(){
-
-    }*/
 }

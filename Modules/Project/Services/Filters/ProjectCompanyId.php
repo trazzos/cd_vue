@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class ProjectId
  * @package Modules\Project\Services\Filters
  */
-class ProjectCompany_Id extends FilterAbstract implements CriteriaInterface {
+class ProjectCompanyId extends FilterAbstract implements CriteriaInterface {
     /**
      * @var array
      */
