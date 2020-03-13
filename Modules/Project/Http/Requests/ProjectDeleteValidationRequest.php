@@ -1,16 +1,16 @@
 <?php
 
-namespace Modules\User\Http\Requests;
+namespace Modules\Project\Http\Requests;
 
 use App\Http\Requests\Request;
 
 /**
- * Class UserDeleteValidationRequest
- * @package Modules\User\Http\Requests
+ * Class ProjectDeleteValidationRequest
+ * @package Modules\Project\Http\Requests
  */
-class UserDeleteValidationRequest extends Request {
+class ProjectDeleteValidationRequest extends Request {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determine if the project is authorized to make this request.
      * @return bool
      */
     public function authorize() {
