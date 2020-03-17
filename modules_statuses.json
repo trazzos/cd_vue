@@ -4,5 +4,6 @@
     "Invoice": true,
     "Project": true,
     "Stage": true,
-    "Task": true
+    "Task": true,
+    "Action": true
 }
