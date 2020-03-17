@@ -15,7 +15,6 @@ class CreateAwardTypeTable extends Migration
     {
         Schema::create('award_type', function (Blueprint $table) {
             $table->tinyIncrements('id');
-            $table->string('text_key',255);
             $table->string('name',255);
             $table->softDeletes();
             $table->timestamps();

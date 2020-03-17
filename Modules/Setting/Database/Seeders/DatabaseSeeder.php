@@ -3,6 +3,7 @@ namespace Modules\Setting\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -18,8 +19,8 @@ class DatabaseSeeder extends Seeder
     public function run() {
         foreach(self::AWARD_TYPES as $key=> $var) {
             DB::table('award_type')->insert([
-                'text_key' =>$key,
-                'name' =>$var
+                'name' => $var,
+                'created_at' => Carbon::now('UTC')
             ]);
         }
 
