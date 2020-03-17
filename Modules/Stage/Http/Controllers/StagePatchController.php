@@ -6,7 +6,6 @@ use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Modules\Stage\Http\Requests\StagePatchValidationRequest;
 use Modules\Stage\Services\StagePatchService;
-use Auth;
 
 /**
  * Class StagePatchController
@@ -33,7 +32,7 @@ class StagePatchController extends Controller
      */
     public function __invoke(StagePatchValidationRequest $request) : JsonResponse {
         $data = $request->validated();
-        $response = $this->stagePatchService->update(Auth::user(), $data);
+        $response = $this->stagePatchService->update($data);
         return $this->handleAjaxJsonResponse($response,'Etapa actualizada');
     }
 }

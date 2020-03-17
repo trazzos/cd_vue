@@ -5,7 +5,7 @@ namespace Modules\Stage\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Task\Models\Task;
-use \Askedio\SoftCascade\Traits\SoftCascadeTrait;
+use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 
 class Stage extends Model
 {

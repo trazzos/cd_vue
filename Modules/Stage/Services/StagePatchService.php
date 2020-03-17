@@ -29,17 +29,7 @@ class StagePatchService {
      * @param array $data
      * @return Stage|null
      */
-    public function update(User $user, array $data) : ?Stage {
-        $data = $this->normalizeData($user, $data);
+    public function update(array $data) : ?Stage {
         return $this->stageRepo->updateAndReturn($data, $data["id"]);
-    }
-
-    /**
-     * @param User $user
-     * @param array $data
-     * @return array
-     */
-    private function normalizeData(User $user, array $data) {
-        return $data;
     }
 }

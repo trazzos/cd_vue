@@ -2,11 +2,9 @@
 
 namespace Modules\Task\Services;
 
-use Illuminate\Pagination\LengthAwarePaginator;
 use Modules\Task\Repositories\Interfaces\TaskRepositoryInterface;
-use ThrowException;
-use Filter;
-use Sort;
+use Illuminate\Support\Collection;
+
 
 /**
  * Class TaskGetService
@@ -27,25 +25,9 @@ class TaskGetService {
     }
 
     /**
-     * @param array $data
-     * @return LengthAwarePaginator|null
+     * @return Collection|null
      */
-    public function list(array $data) : ?LengthAwarePaginator {
-        if(isset($data['predicates'])) {
-            Filter::apply(__NAMESPACE__, $this->taskRepo, $data['predicates']);
-        }
-
-        if(isset($data['sorts'])) {
-            Sort::apply(__NAMESPACE__, $this->taskRepo, $data['sorts']);
-        }
-        $tasks = $this->taskRepo->paginate($data['per_page']);
-        $tasks->load('task');
-        $this->taskRepo->resetRepository();
-
-        if(!$tasks) {
-            ThrowException::notFound();
-        }
-
-        return $tasks;
+    public function list() : ?Collection {
+        return $this->taskRepo->all();
     }
 }
