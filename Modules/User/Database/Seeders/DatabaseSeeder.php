@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $faker = Faker\Factory::create();
         DB::table('user')->insert([
             'name' => $faker->name,
+            'user_id' => 1,
             'email' => $faker->email,
             'password' => Hash::make('password'),
             'role' => User::ROLE_ADMIN,
