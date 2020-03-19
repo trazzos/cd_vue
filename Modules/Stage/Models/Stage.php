@@ -5,10 +5,15 @@ namespace Modules\Stage\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Task\Models\Task;
+use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 
 class Stage extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, SoftCascadeTrait;
+    /*
+     * @var array this define which relations is delete on cascade
+     */
+    protected $softCascade = ['task'];
     /**
      * The database table used by the model.
      *
@@ -23,7 +28,7 @@ class Stage extends Model
      */
     protected $guarded = [];
 
-    protected $hidden = ['id'];
+    protected $hidden = [];
 
     public function task(){
         return $this->hasMany(Task::class);

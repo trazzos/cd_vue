@@ -33,7 +33,7 @@ class TaskPostController extends Controller
     public function __invoke(TaskPostValidationRequest $request) : JsonResponse {
         $response = $this->taskCreateService->create($request->validated());
 
-        return $this->handleAjaxJsonResponse($response);
+        return $this->handleAjaxJsonResponse($response,"Tarea creada");
     }
 
 }

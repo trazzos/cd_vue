@@ -31,7 +31,7 @@ class StageDeleteController extends Controller{
      */
     public function __invoke(StageDeleteValidationRequest $request) : JsonResponse {
         $response = $this->stageDeleteService->delete($request->get('id'));
-        return $this->handleAjaxJsonResponse($response);
+        return $this->handleAjaxJsonResponse($response,'Etapa eliminada');
 
     }
 }
