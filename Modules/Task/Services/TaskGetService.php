@@ -2,10 +2,9 @@
 
 namespace Modules\Task\Services;
 
-use Illuminate\Support\Collection;
-use Modules\Task\Models\Task;
 use Modules\Task\Repositories\Interfaces\TaskRepositoryInterface;
-use ThrowException;
+use Illuminate\Support\Collection;
+
 
 /**
  * Class TaskGetService
@@ -26,32 +25,9 @@ class TaskGetService {
     }
 
     /**
-     * @param $id
-     * @return Task|null
-    * At this point everything is validated, we shouldn't check anything else
-     */
-    public function info($id) : ?Task {
-        $task = $this->taskRepo->findBy('id', $id);
-
-        if(!$task) {
-            ThrowException::notFound();
-        }
-
-        return $task;
-    }
-
-    /**
-     * @param $id
-     * @return Task|null
-     * At this point everything is validated, we shouldn't check anything else
-     * TODO this is just a test  function to show backend and frontend connection
+     * @return Collection|null
      */
     public function list() : ?Collection {
-        $tasks= $this->taskRepo->all();
-        if(!$tasks) {
-            ThrowException::notFound();
-        }
-
-        return $tasks;
+        return $this->taskRepo->all();
     }
 }

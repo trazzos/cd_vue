@@ -2,6 +2,8 @@
 
 namespace Modules\Task\Services;
 
+use Modules\Task\Models\Task;
+use Modules\User\Models\User;
 use Modules\Task\Repositories\Interfaces\TaskRepositoryInterface;
 use ThrowException;
 
@@ -24,17 +26,20 @@ class TaskPatchService {
     }
 
     /**
-     * @param $data source to update
-     * @param $id register identifier that will be updated
-     * @return false|true
+     * @param User $user
+     * @param array $data
+     * @return Stage|null
      */
-    public function update(array $data, $id): ? bool{
-        $task = $this->taskRepo->update($data,$id,"id");
-
-        if(!$task) {
-            ThrowException::notFound();
-        }
-
-        return $task;
+    public function update(User $user, array $data): ?Task {
+         $data = $this->normalizeData($user, $data);
+         return $this->taskRepo->updateAndReturn($data,$data['id']);
+    }
+    /**
+     * @param User $user
+     * @param array $data
+     * @return array
+     */
+    private function normalizeData(User $user, array $data) {
+        return $data;
     }
 }

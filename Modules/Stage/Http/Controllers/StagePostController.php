@@ -33,7 +33,7 @@ class StagePostController extends Controller
     public function __invoke(StagePostValidationRequest $request) : JsonResponse {
         $response = $this->stageCreateService->create($request->validated());
 
-        return $this->handleAjaxJsonResponse($response);
+        return $this->handleAjaxJsonResponse($response,"Etapa creada");
     }
 
 }

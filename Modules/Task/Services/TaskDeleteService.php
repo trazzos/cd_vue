@@ -26,7 +26,7 @@ class TaskDeleteService {
      * @param $id
      * @return false|true
      */
-    public function delete($id): ? bool {
-        return $this->taskRepo->deleteWhere("id","=",$id);
+    public function delete($id): ?bool {
+        return $this->taskRepo->delete($id);
     }
 }
