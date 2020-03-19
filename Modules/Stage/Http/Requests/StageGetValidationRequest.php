@@ -27,7 +27,7 @@ class StageGetValidationRequest extends Request
      * @return array, rules defined into Config/validation.php
      */
     public function rules() {
-        return Config::get('validation.default');
+        return Config::get('validation.default_http_get');
     }
 
 }

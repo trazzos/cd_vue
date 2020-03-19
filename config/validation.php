@@ -6,10 +6,10 @@ return [
     |--------------------------------------------------------------------------
     |
     | This option defines the default validation for
-    | the next methods of http [GET]
+    | the method GET HTTP
     |
     */
-    'default' => [
+    'default_http_get' => [
       'predicates' => 'array|nullable',
       'predicates.*.name' => 'string|required',
       'predicates.*.comparison' => 'string|required',
