@@ -27,7 +27,4 @@ class UserDeleteValidationRequest extends Request {
             'id' => 'integer|required'
         ];
     }
-    /*public function messages(){
-
-    }*/
 }

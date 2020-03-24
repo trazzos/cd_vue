@@ -31,8 +31,8 @@ class StagePatchController extends Controller
      * @return JsonResponse
      */
     public function __invoke(StagePatchValidationRequest $request) : JsonResponse {
-        $response = $this->stagePatchService->update($request->validated(), $request->get("id"));
-
-        return $this->handleAjaxJsonResponse($response);
+        $data = $request->validated();
+        $response = $this->stagePatchService->update($data);
+        return $this->handleAjaxJsonResponse($response,'Etapa actualizada');
     }
 }

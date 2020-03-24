@@ -11,6 +11,16 @@ use App\Http\Requests\Request;
 class StagePatchValidationRequest extends Request
 {
     /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
      * Get the validation rules that apply to the request.
      *
      * @return array
@@ -20,17 +30,6 @@ class StagePatchValidationRequest extends Request
         return[
             'id'=> 'required',
             'name' =>'required|string',
-            'award_type_id' => 'required',
         ];
-    }
-
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return true;
     }
 }

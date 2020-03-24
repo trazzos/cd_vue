@@ -23,7 +23,7 @@ class Task extends Model
      */
     protected $guarded = [];
 
-    protected $hidden = ['id'];
+    protected $hidden = [];
 
     public function stage(){
         return $this->belongsTo(Stage::class)

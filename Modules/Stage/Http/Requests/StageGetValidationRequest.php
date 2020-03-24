@@ -3,6 +3,7 @@
 namespace Modules\Stage\Http\Requests;
 
 use App\Http\Requests\Request;
+use Config;
 
 /**
  * Class StageGetValidationRequest
@@ -10,18 +11,6 @@ use App\Http\Requests\Request;
  */
 class StageGetValidationRequest extends Request
 {
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
-    {
-        return [
-            'id' => 'required',
-        ];
-    }
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -31,4 +20,14 @@ class StageGetValidationRequest extends Request
     {
         return true;
     }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array, rules defined into Config/validation.php
+     */
+    public function rules() {
+        return Config::get('validation.default_http_get');
+    }
+
 }

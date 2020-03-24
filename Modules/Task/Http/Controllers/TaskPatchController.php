@@ -6,6 +6,7 @@ use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Modules\Task\Http\Requests\TaskPatchValidationRequest;
 use Modules\Task\Services\TaskPatchService;
+use Auth;
 
 /**
  * Class TaskPatchController
@@ -31,8 +32,8 @@ class TaskPatchController extends Controller
      * @return JsonResponse
      */
     public function __invoke(TaskPatchValidationRequest $request) : JsonResponse {
-        $response = $this->taskPatchService->update($request->validated(), $request->get("id"));
+        $response = $this->taskPatchService->update(Auth::user(),$request->validated());
 
-        return $this->handleAjaxJsonResponse($response);
+        return $this->handleAjaxJsonResponse($response,'Tarea actualizada');
     }
 }
