@@ -16,9 +16,8 @@ class CreateAnnouncementTable extends Migration
         Schema::create('announcement', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('announcement_type_id');
-            $table->string('announcement_type_name');
             $table->string('name');
-            $table->string('fecha');
+            $table->string('date');
             $table->softDeletes();
             $table->timestamps();
         });

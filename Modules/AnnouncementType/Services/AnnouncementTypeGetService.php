@@ -28,8 +28,6 @@ class AnnouncementTypeGetService {
     /**
      * @param $id
      * @return AnnouncementType|null
-     * At this point everything is validated, we shouldn't check anything else
-     * TODO this is just a test  function to show backend and frontend connection
      */
     public function list() : ?Collection {
         $types= $this->announcement_typeRepo->all();

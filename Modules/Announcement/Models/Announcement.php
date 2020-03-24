@@ -25,9 +25,5 @@ class Announcement extends Model
 
     protected $hidden = [];
 
-    /* public function announcement_type(){
-        return $this->hasMany(AnnouncementType::class);
-    } */
-
 
 }
