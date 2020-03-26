@@ -12,8 +12,9 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::group(['prefix' => 'setting','middleware' => 'jwt.auth'], function() {
-    Route::get('awardType', 'AwardTypeGetController')->name('awardTypeGet');
-    Route::get('catalogue', 'CatalogueGetController')->name('catalogueGet');
+Route::group(['prefix'=>'action', 'middleware'=>'jwt.auth'], function (){
+    Route::get('','ActionGetController')->name('actionGet');
+    Route::post('','ActionPostController')->name('actionPost');
+    Route::patch('','ActionPatchController')->name('actionPatch');
+    Route::delete('','ActionDeleteController')->name('actionDelete');
 });

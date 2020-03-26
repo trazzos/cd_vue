@@ -5,5 +5,6 @@
     "Project": true,
     "Stage": true,
     "Task": true,
-    "Setting": true
+    "Setting": true,
+    "Action": true
 }
