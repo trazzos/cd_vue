@@ -23,4 +23,13 @@ class Action extends Model
     protected $guarded = [];
 
     protected $hidden = [];
+
+    /**
+     * The attributes that are convert.
+     *
+     * @var array
+     */
+    protected $casts = [
+      'accepted_extension' => 'array',
+    ];
 }

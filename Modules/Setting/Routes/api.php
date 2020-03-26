@@ -15,4 +15,5 @@ use Illuminate\Http\Request;
 
 Route::group(['prefix' => 'setting','middleware' => 'jwt.auth'], function() {
     Route::get('awardType', 'AwardTypeGetController')->name('awardTypeGet');
+    Route::get('catalogue', 'CatalogueGetController')->name('catalogueGet');
 });

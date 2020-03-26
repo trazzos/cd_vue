@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class UserName
- * @package Modules\User\Services\Filters
+ * Class ActionName
+ * @package Modules\Action\Services\Filters
  */
-class UserName extends FilterAbstract implements CriteriaInterface {
+class ActionName extends FilterAbstract implements CriteriaInterface {
     /**
      * @var array
      */

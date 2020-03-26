@@ -33,7 +33,7 @@ class ActionPostController extends Controller
     public function __invoke(ActionPostValidationRequest $request) : JsonResponse {
         $response = $this->actionCreateService->create($request->validated());
 
-        return $this->handleAjaxJsonResponse($response);
+        return $this->handleAjaxJsonResponse($response,"Accion registrada");
     }
 
 }

@@ -6,10 +6,8 @@ use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Modules\Action\Http\Requests\ActionPatchValidationRequest;
 use Modules\Action\Services\ActionPatchService;
-use Auth;
 
-
-/**r
+/**
  * Class ActionPatchController
  * @package Modules\Action\Http\Controllers
  */
@@ -34,7 +32,7 @@ class ActionPatchController extends Controller
      */
     public function __invoke(ActionPatchValidationRequest $request) : JsonResponse {
         $data = $request->validated();
-        $response = $this->actionPatchService->update(Auth::user(), $data);
+        $response = $this->actionPatchService->update($data);
 
         return $this->handleAjaxJsonResponse($response,"Acción actualizada");
     }
