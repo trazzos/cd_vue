@@ -31,7 +31,6 @@ class ActionDeleteController extends Controller{
      */
     public function __invoke(ActionDeleteValidationRequest $request) : JsonResponse {
         $response = $this->actionDeleteService->delete($request->get('id'));
-        return $this->handleAjaxJsonResponse($response,"Acción eliminada");
-
+        return $this->handleAjaxJsonResponse($response, "Acción eliminada");
     }
 }
