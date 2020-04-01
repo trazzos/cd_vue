@@ -6,5 +6,7 @@
     "Stage": true,
     "Task": true,
     "Setting": true,
-    "Action": true
+    "Action": true,    
+    "Announcement": true,
+    "AnnouncementType": true
 }

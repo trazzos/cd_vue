@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['prefix' => 'announcement','middleware' => 'jwt.auth'], function() {    
+Route::group(['prefix' => 'announcement','middleware' => 'jwt.auth'], function() {
     Route::get('', 'AnnouncementGetController')->name('announcementGet');
     Route::post('', 'AnnouncementPostController')->name('announcementPost');
     Route::patch('', 'AnnouncementPatchController')->name('announcementPatch');

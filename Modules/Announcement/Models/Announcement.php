@@ -4,7 +4,7 @@ namespace Modules\Announcement\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-/* use Modules\Task\Models\announcement_type; */
+use Modules\AnnouncementType\Models\AnnouncementType;
 
 class Announcement extends Model
 {
@@ -25,5 +25,8 @@ class Announcement extends Model
 
     protected $hidden = [];
 
+    public function announcement_type(){
+        return $this->belongsTo(AnnouncementType::class);    
+    }
 
 }

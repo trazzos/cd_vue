@@ -40,6 +40,7 @@ class AnnouncementGetService {
         }
 
         $announcement = $this->announcementRepo->paginate($data['per_page']);
+        $announcement->load('announcement_type');
         $this->announcementRepo->resetRepository(); 
 
         return $announcement;

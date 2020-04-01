@@ -21,8 +21,7 @@ class AnnouncementPatchValidationRequest extends Request
             'id'=> 'required|integer',
             'name' =>'required|string',
             'announcement_type_id' =>'required|integer',
-            'announcement_type_name' =>'required|string',
-            'fecha' =>'required',
+            'date' =>'required',
         ];
     }
 
