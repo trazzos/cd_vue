@@ -31,7 +31,7 @@ class AnnouncementDeleteController extends Controller{
      */
     public function __invoke(AnnouncementDeleteValidationRequest $request) : JsonResponse {
         $response = $this->announcementDeleteService->delete($request->get('id'));
-        return $this->handleAjaxJsonResponse($response);
+        return $this->handleAjaxJsonResponse($response,'Convocatoria eliminada con exito.');
 
     }
 }

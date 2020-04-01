@@ -33,7 +33,7 @@ class AnnouncementPostController extends Controller
     public function __invoke(AnnouncementPostValidationRequest $request) : JsonResponse {
         $response = $this->announcementCreateService->create($request->validated());
 
-        return $this->handleAjaxJsonResponse($response);
+        return $this->handleAjaxJsonResponse($response,'Convocatoria guardada');
     }
 
 }

@@ -15,7 +15,8 @@ class CreateAnnouncementTable extends Migration
     {
         Schema::create('announcement', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('announcement_type_id');
+            $table->bigInteger('announcement_type_id')->unsigned()->nullable();
+            $table->foreign('announcement_type_id')->references('id')->on('announcement_type')->onDelete('cascade');
             $table->string('name');
             $table->string('date');
             $table->softDeletes();
